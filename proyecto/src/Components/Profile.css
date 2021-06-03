@@ -1,8 +1,8 @@
 .cover {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
-    height: 494px;
-    width: 1900px;
+    height: 394px;
+    width: 100%;
 }
 
 .profileCover > img{
@@ -55,5 +55,16 @@
     border-top-left-radius: 25px;
 }
 
+
+@media only screen and (max-width: 1350px) {
+    
+    .cover {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        height: 394px;
+        width: 100%;
+    }
+    
+}
 
 

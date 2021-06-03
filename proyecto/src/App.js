@@ -1,12 +1,12 @@
 import './App.css';
 import Login from './Components/Login';
-import Profile from './Components/Profile';
+import Profile2 from './Components/Profile2';
 import Router from './Router';
 
 function App() {
   return (
     <div className="App">
-        <Profile />
+        <Profile2 />
     </div>
   );
 }

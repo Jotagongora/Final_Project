@@ -9,7 +9,7 @@ export default function Profile() {
         <div>
             <div className="cover">
                 <div className="profileCover">
-                    <img width="35%" height="35%" src={Avatar} alt=""/>
+                    <img width="145px" height="145px" src={Avatar} alt=""/>
                     <h1 className="profileName">Juan Alberto</h1>
                     <div>
                         <div>
@@ -19,7 +19,7 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="profileCover">
-                <img width="100%" height="100%" src={PostImg} alt=""/>
+                <img width="600px" height="394px" src={PostImg} alt=""/>
                 <nav className="profileNav">
                     <a href="">Publicaciones</a>
                     <a href="">Fotos</a>
