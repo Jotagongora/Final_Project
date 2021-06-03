@@ -1,20 +1,19 @@
 import React from 'react';
 import './Profile2.css';
 import Avatar from '../Images/avatar_prueba.jpg';
-import BgImg from '../Images/crop.php.jpeg';
+import BgImg from '../Images/imagenfondo.jpg';
 
 export default function Profile2() {
     return (
         <div>
             <div className="profileHeader">
-                <div>
+                <div className="box1">
 
                 </div>
-                <div className="bg-img">
-                    <img src={BgImg} alt="bg-img" width="100%" height="200px"/>
-                    <img src={Avatar} alt="avatar" width="25%"/>
+                <div className="box2">
+                    
                 </div>
-                <div>
+                <div className="box3">
 
                 </div>
             </div>

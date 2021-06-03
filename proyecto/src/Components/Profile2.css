@@ -1,0 +1,18 @@
+.box1 {
+    background-color: red;
+   
+}
+
+.box2 {
+    background-color: blue;
+  
+}
+
+.box3 {
+    background-color: green;
+}
+
+.profileHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
