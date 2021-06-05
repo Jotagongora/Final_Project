@@ -1,21 +1,19 @@
-.box1 {
-    background-color: white;
-    flex-grow: 0; 
-}
-
-.box2 {
+.bg-img {
     background-image: url("../Images/wildrift.jpg");
     background-position: center;
     background-size: cover;
+}
+
+.box2 {
     flex-grow: 3;
 }
 
-.box3 {
+.box1, .box3 {
     background-color: white;
     flex-grow: 0;
 }
 
-.profileHeader {
+.profileContainer {
     display: flex;
     height: 45vw;
     width: 100%;
@@ -35,9 +33,73 @@
     
 }
 
-
 .textSize {
     font-size: 30px;
+}
+
+
+.profileNav {   
+    display: flex;
+    justify-content: space-around;
+}
+
+.profileNav > a {   
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.profileAsideLeft, .profileAsideRight {
+    background-color: rgb(229, 243, 238);
+    flex-grow: 0; 
+}
+
+.borderPost {
+    border: solid 1px black;
+    border-bottom: 0px;
+    text-align: center;
+}
+
+.DownBorderPost {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid black;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.post {
+    margin-top: 20px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.post > div > p {
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+.postImg {
+    display: inline-flex;
+    width: 55px;
+    height: 55px;
+    margin-top: 15px;
+    background-image: url("../Images/avatar_prueba.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.toAttachImg {
+    background-image: url("../Images/imagenfondo.jpg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: auto;
+    height: 70vw;
+}
+
+.isActive {
+    border-bottom: 5px solid blue;
 }
 
 
@@ -45,32 +107,35 @@
 
 @media screen and (min-width: 938px){
 
-    .box1 {
-        background-color: white;
+    .box1, .box3, .profileAsideLeft, .profileAsideRight {
         flex-grow: 1; 
+        margin-top: 20px;
     }
     
     .box2 {
-        background-image: url("../Images/wildrift.jpg");
-        background-position: center;
-        background-size: cover;
         flex-grow: 0;
-        width: 938px;
-    }
-    
-    .box3 {
-        background-color: white;
-        flex-grow: 1;
+        width: 978px;
     }
 
-    .profileHeader {
-        display: flex;
-        height: 422px;
-        width: 100%;
+    .profileContainer {
+        height: 430px;
     }
 
     .profileImg {
         margin-left: 47.5%;
     }
 
+    .navContainer {
+        display: flex;
+        padding-top: 20px;
+    }
+
+    .profileNav {   
+        width: 978px;
+    }
+
+    .toAttachImg {
+        height: 650px;
+        width: 90%;
+    }
 }
