@@ -5,7 +5,7 @@ import BgImg from '../Images/imagenfondo.jpg';
 
 export default function Profile2() {
     return (
-        <div>
+        <div className="profileContainer">
             <div className="profileHeader">
                 <div className="box1">
 
