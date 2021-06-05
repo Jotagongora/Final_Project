@@ -71,11 +71,11 @@ form > div > button:hover {
     }
 
     * {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     form > div > button {
-        font-size: 16px;
+        font-size: 18px;
     }
 
 }
@@ -92,14 +92,6 @@ form > div > button:hover {
 
     .logo {
         margin-bottom: 10%;
-    }
-
-    * {
-        font-size: 16px;
-    }
-
-    form > div > button {
-        font-size: 18px;
     }
 }
 

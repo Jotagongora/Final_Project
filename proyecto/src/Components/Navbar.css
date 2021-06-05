@@ -1,0 +1,21 @@
+.principalNav {
+    height: 145px;
+    background-color: rgb(229, 243, 238);
+}
+
+.principalNav > a {
+    text-decoration: none;
+}
+
+.principalNav > a > i {
+    font-size: 80px;
+    padding-top: 30px;
+    color: white;
+}
+
+
+.principalNav > a > i:hover {
+    color: aquamarine;
+    padding-top: 25px;
+    font-size: 85px;
+}
