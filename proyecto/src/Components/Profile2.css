@@ -1,18 +1,75 @@
 .box1 {
-    background-color: red;
-   
+    background-color: white;
+    flex-grow: 0; 
 }
 
 .box2 {
-    background-color: blue;
-  
+    background-image: url("../Images/wildrift.jpg");
+    background-position: center;
+    background-size: cover;
+    flex-grow: 3;
 }
 
 .box3 {
-    background-color: green;
+    background-color: white;
+    flex-grow: 0;
 }
 
 .profileHeader {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    height: 45vw;
+    width: 100%;
+}
+
+.profileImg {
+    background-image: url("../Images/avatar_prueba.jpg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-top: -130px;
+    margin-left: 43%;
+    
+}
+
+.textSize {
+    font-size: 30px;
+}
+
+
+
+
+@media screen and (min-width: 938px){
+
+    .box1 {
+        background-color: white;
+        flex-grow: 1; 
+    }
+    
+    .box2 {
+        background-image: url("../Images/wildrift.jpg");
+        background-position: center;
+        background-size: cover;
+        flex-grow: 0;
+        width: 938px;
+    }
+    
+    .box3 {
+        background-color: white;
+        flex-grow: 1;
+    }
+
+    .profileHeader {
+        display: flex;
+        height: 422px;
+        width: 100%;
+    }
+
+    .profileImg {
+        margin-left: 47.5%;
+    }
+
 }

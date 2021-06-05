@@ -17,6 +17,10 @@ export default function Profile2() {
 
                 </div>
             </div>
+            <div className="profileImg"></div> {/*TODO: Arreglar margenes de foto perfil} */}
+            <div>
+                <h1 className="textSize">Juan Alberto</h1>
+            </div>
         </div>
     )
 }
