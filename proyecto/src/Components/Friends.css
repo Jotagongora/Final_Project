@@ -1,11 +1,37 @@
+.searchInput {
+    padding: 20px 0;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.searchInput > input {
+    width: 420px;
+    font-size: 15px;
+}
+
+.searchInput > i {
+    margin-left: -35px;
+    color: gray;
+}
+
 .friendList {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    grid-row-gap: 50px;
 }
 
 .eachFriend {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    border: 1px solid gray;
+    height: 25vw;
+    width: 99%;
+    margin: auto;
+    border-radius: 15px;
 }
 
 .eachFriend > div > h3 {
@@ -64,4 +90,23 @@
 
 .removeButton:active {
     color: gray;
+}
+
+@media only screen and (min-width: 620px) {
+    .eachFriend {
+        width: 620px;
+        height: 155px;
+    }
+}
+
+@media only screen and (min-width: 1264px) {
+    .friendList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .friendList {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

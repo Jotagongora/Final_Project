@@ -6,7 +6,7 @@ import Friends from './Components/Friends';
 function App() {
   return (
     <div className="App">
-        <Friends />
+        <Navbar />
     </div>
   );
 }
