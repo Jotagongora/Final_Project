@@ -1,13 +1,12 @@
 import './App.css';
 import './css/all.css';
-import Login from './Components/Login';
-import Profile2 from './Components/Profile2';
 import Navbar from './Navbar';
+import Friends from './Components/Friends';
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
+        <Friends />
     </div>
   );
 }

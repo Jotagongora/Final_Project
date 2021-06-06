@@ -1,0 +1,67 @@
+.friendList {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.eachFriend {
+    display: flex;
+    justify-content: space-around;
+}
+
+.eachFriend > div > h3 {
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-left: -220px;
+
+}
+
+.friendImg {
+    background-image: url("../Images/imagenfondo.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+
+.friendButtons > button {
+    margin: 5px;
+    width: 170px;
+    padding: 6px;
+    font-size: 17px;
+}
+
+.profileButton {
+    background-color: green;
+    border: rgb(2, 104, 2);
+    height: 45.25px;
+    border-radius: 10px;
+    color: white;
+}
+
+.profileButton:hover {
+    background-color: rgb(2, 104, 2);
+    cursor: pointer;
+}
+
+.profileButton:active {
+    color: gray;
+}
+
+.removeButton {
+    background-color: rgb(216, 16, 16);
+    border: rgb(156, 13, 13);
+    height: 45.25px;
+    border-radius: 10px;
+    color: white;
+}
+
+.removeButton:hover {
+    background-color: rgb(156, 13, 13);
+    cursor: pointer;
+}
+
+.removeButton:active {
+    color: gray;
+}
