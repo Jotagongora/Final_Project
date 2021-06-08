@@ -1,14 +1,18 @@
 import './App.css';
+import ImageSlider from './Components/ImageSlider';
+import { SliderData } from './Components/SliderData';
 import './css/all.css';
 import Navbar from './Navbar';
-import Friends from './Components/Friends';
+
+
 
 function App() {
   return (
     <div className="App">
-        <Navbar />
+        <Navbar/>
     </div>
   );
 }
 
 export default App;
+

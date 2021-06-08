@@ -1,46 +1,68 @@
-import React from 'react'
+import React from 'react';
 import './Profile.css';
-import Avatar from '../Images/avatar_prueba.jpg';
-import PostImg from '../Images/wildrift.jpg';
-import Like from '../Icons/me-gusta.png';
+
 
 export default function Profile() {
     return (
         <div>
-            <div className="cover">
-                <div className="profileCover">
-                    <img width="145px" height="145px" src={Avatar} alt=""/>
-                    <h1 className="profileName">Juan Alberto</h1>
-                    <div>
-                        <div>
-                            <h2 className="lvlExp">5</h2>
-                        </div>
-                        <progress max="100" value="70"></progress>
-                    </div>
+            <div className="profileContainer">
+                <div className="bg-img"> </div>
+            </div>
+            <div className="profileImg"></div>
+                <div>
+                    <h1 className="textSize">Juan Alberto</h1>
                 </div>
-                <div className="profileCover">
-                <img width="600px" height="394px" src={PostImg} alt=""/>
+            <div>
                 <nav className="profileNav">
                     <a href="">Publicaciones</a>
                     <a href="">Fotos</a>
-                    <a href="">Amigos</a>
-                    <a href="">Misiones</a>
+                    <a href="">Biblioteca</a>
+                    <button>Editar perfil</button>
                 </nav>
-                </div>
-                <div></div>
             </div>
-            <div className="postArea">
-                <div className="bg-gray"></div>
-                <div className="bg-gray">
-                    <div className="post">
-                        <h3>Titulo post</h3>
-                        <p>02/06/2021</p>
-                    </div>
-                    <div>
-                        <textarea name="post" id="post" cols="57" rows="10"></textarea>
+            <div className="bgPostColor">
+                <div className="navContainer">
+                    <div className="box2">
+                        <div className="post borderPost">
+                            <div className="postImg"></div>
+                            <div>
+                                <h1>Título publicación</h1>
+                                <p>Fecha</p>
+                            </div>
+                        </div>
+                        <div className="borderPost">
+                            <div className="toAttachImg"></div>
+                        </div>
+                        <div className="DownBorderPost">
+                            <p>El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. asdasd</p>
+                            <div className="icons">
+                                <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
+                                <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="bg-gray"></div>
+                <div className="navContainer">
+                <div className="box2">
+                    <div className="post borderPost">
+                        <div className="postImg"></div>
+                        <div>
+                            <h1>Título publicación</h1>
+                            <p>Fecha</p>
+                        </div>
+                    </div>
+                    <div className="borderPost">
+                        <div className="toAttachImg"></div>
+                    </div>
+                    <div className="DownBorderPost">
+                        <p>El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. asdasd</p>
+                        <div className="icons">
+                            <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
+                            <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     )
