@@ -3,10 +3,10 @@ import {useState} from 'react';
 import {SliderData} from './SliderData';
 import ImageSliderCss from './ImageSlider.css';
 
-export default function ImageSlider({slides}) {
+export default function ImageSlider() {
 
     const [current, setCurrent] = useState(0);
-    const length = slides.length;
+    const length = SliderData.length;
 
     const nextSlide = () => {
         setCurrent(current === (length - 1) ? 0 : current + 1);
@@ -18,7 +18,7 @@ export default function ImageSlider({slides}) {
 
     console.log(current);
 
-    if(!Array.isArray(slides) || slides.length <= 0) {
+    if(!Array.isArray(SliderData) || SliderData.length <= 0) {
         return null
     }
 

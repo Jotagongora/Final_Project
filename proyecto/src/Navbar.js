@@ -11,11 +11,11 @@ export default function Navbar() {
     return (
         <nav className="principalNav">
             <Router>
-                <NavLink to="/Profile"><i className="fas fa-user"></i></NavLink>
+                <NavLink to="/User"><i className="fas fa-user"></i></NavLink>
                 <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                 <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
                 <Switch>
-                    <Route path="/Profile" component={Profile}/>
+                    <Route exact path="/User" component={Profile}/>
                     <Route path="/Friends" component={Friends}/>
                     <Route path="/Games" component={Games}/>
                 </Switch>

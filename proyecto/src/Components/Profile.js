@@ -1,5 +1,9 @@
 import React from 'react';
+import {BrowserRouter as Router, NavLink, Switch, Route} from 'react-router-dom';
 import './Profile.css';
+import Posts from './Posts';
+import UserPhotos from './UserPhotos';
+import ImageSlider from './ImageSlider';
 
 
 export default function Profile() {
@@ -12,58 +16,22 @@ export default function Profile() {
                 <div>
                     <h1 className="textSize">Juan Alberto</h1>
                 </div>
-            <div>
-                <nav className="profileNav">
-                    <a href="">Publicaciones</a>
-                    <a href="">Fotos</a>
-                    <a href="">Biblioteca</a>
-                    <button>Editar perfil</button>
-                </nav>
-            </div>
-            <div className="bgPostColor">
-                <div className="navContainer">
-                    <div className="box2">
-                        <div className="post borderPost">
-                            <div className="postImg"></div>
-                            <div>
-                                <h1>Título publicación</h1>
-                                <p>Fecha</p>
-                            </div>
-                        </div>
-                        <div className="borderPost">
-                            <div className="toAttachImg"></div>
-                        </div>
-                        <div className="DownBorderPost">
-                            <p>El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. asdasd</p>
-                            <div className="icons">
-                                <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
-                                <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
-                            </div>
-                        </div>
-                    </div>
+            <Router>
+                <div>
+                    <nav className="profileNav">
+                        <NavLink className="navlinkProfile" to="/User">Publicaciones</NavLink>
+                        <NavLink className="navlinkProfile" to="/User/Friends">Amigos</NavLink>
+                        <NavLink className="navlinkProfile" to="/User/Library">Biblioteca</NavLink>
+                        <NavLink className="navlinkProfile" to="/User/Photos">Fotos</NavLink>
+                        <NavLink className="navlinkProfile" to="/User/Edit">Editar perfil</NavLink>
+                    </nav>
                 </div>
-                <div className="navContainer">
-                <div className="box2">
-                    <div className="post borderPost">
-                        <div className="postImg"></div>
-                        <div>
-                            <h1>Título publicación</h1>
-                            <p>Fecha</p>
-                        </div>
-                    </div>
-                    <div className="borderPost">
-                        <div className="toAttachImg"></div>
-                    </div>
-                    <div className="DownBorderPost">
-                        <p>El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. El nuevo juego. asdasd</p>
-                        <div className="icons">
-                            <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
-                            <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+                <Switch>
+                    <Route exact path="/User" component={Posts}/>
+                    <Route exact path="/User/Photos" component={UserPhotos}/>
+                    <Route path="/User/Slider" component={ImageSlider}/>
+                </Switch>
+            </Router>
         </div>
     )
 }

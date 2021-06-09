@@ -1,6 +1,5 @@
 import './App.css';
 import ImageSlider from './Components/ImageSlider';
-import { SliderData } from './Components/SliderData';
 import './css/all.css';
 import Navbar from './Navbar';
 
