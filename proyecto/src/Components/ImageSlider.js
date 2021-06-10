@@ -1,11 +1,13 @@
 import React from 'react';
-import {useState} from 'react';
+import { useContext} from 'react';
 import {SliderData} from './SliderData';
+import {GlobalContext} from '../Navbar';
 import ImageSliderCss from './ImageSlider.css';
 
 export default function ImageSlider() {
 
-    const [current, setCurrent] = useState(0);
+    const {current, setCurrent} = useContext(GlobalContext);
+
     const length = SliderData.length;
 
     const nextSlide = () => {

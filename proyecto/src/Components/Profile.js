@@ -23,7 +23,6 @@ export default function Profile() {
                         <NavLink className="navlinkProfile" to="/User/Friends">Amigos</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Library">Biblioteca</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Photos">Fotos</NavLink>
-                        <NavLink className="navlinkProfile" to="/User/Edit">Editar perfil</NavLink>
                     </nav>
                 </div>
                 <Switch>

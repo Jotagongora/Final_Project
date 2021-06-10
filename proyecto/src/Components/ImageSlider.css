@@ -1,41 +1,53 @@
 .sliderImg {
     width: 1250px;
-    height: 900px;
+    height: 200px;
     border-radius: 10px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-
 }
 
 
 .slider {
+    margin-top: 60px;
     position: relative;
-    height: 100vh;
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 
 .arrowButtonRight {
     position: absolute;
-    top: 50%;
+    top: 80%;
     right: 32px;
     font-size: 3rem;
-    color: black;
+    color: white;
     cursor: pointer;
     user-select: none;
+    z-index: 1;
 }
 
 .arrowButtonLeft {
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 32px;
     font-size: 3rem;
-    color: black;
+    color: white;
     cursor: pointer;
     user-select: none;
+    z-index: 1;
 }
+
+.arrowButtonRight:hover {
+    color: rgb(229, 243, 238);
+}
+
+.arrowButtonLeft:hover {
+    color: rgb(229, 243, 238);
+}
+
 
 .slide {
     opacity: 0;
@@ -59,6 +71,7 @@
     background-position: center;
     background-size: cover;
     background-color: gray;
+    cursor: pointer;
 }
 
 .gridPhotosContainer {
@@ -80,6 +93,23 @@
         height: 20vw;
     }
 
+    .slider {
+        height: 50vh;
+        
+    }
+
+    .sliderImg {
+        height: 300px;
+    }
+
+    .arrowButtonRight {
+        top: 50%;
+    }
+    
+    .arrowButtonLeft {
+       top: 50%;
+    }
+
 }
 
 @media screen and (min-width: 900px){
@@ -90,6 +120,15 @@
 
     .photos {
         height: 15vw;
+    }
+
+    .slider {
+        height: 60vh;
+        
+    }
+
+    .sliderImg {
+        height: 400px;
     }
 
 }
@@ -105,6 +144,15 @@
         height: 145px;
     }
 
+    .slider {
+        height: 65vh;
+        
+    }
+
+    .sliderImg {
+        height: 400px;
+    }
+
 }
 
 @media screen and (min-width: 1378px){
@@ -112,6 +160,15 @@
     .gridPhotosContainer {
         width: 960px;
        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .slider {
+        height: 90vh;
+        
+    }
+
+    .sliderImg {
+        height: 600px;
     }
 
 }
