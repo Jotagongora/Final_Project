@@ -1,0 +1,75 @@
+.allGamesBlock {
+    background-color: rgb(87, 0, 128);
+}
+
+.allGamesBlock > .searchInput > h1{
+    color: white;
+}
+
+.gameContainer {
+    font-size: 15px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 80%;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+
+
+.gameImg {
+    margin: auto;
+    width: 100%;
+    height: 40vw;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-position: center;
+    background-size: cover;
+}
+
+.gameDescription > ul {
+    padding: 0;  
+}
+
+.gameDescription > ul > li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid white;    
+}
+
+@media screen and (min-width: 600px){
+
+    .gameImg {
+        height: 22vw;
+    }
+    
+    .gamesContainer {
+        margin: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gameContainer {
+       width: 90%;
+    }
+    
+}
+
+@media screen and (min-width: 900px){
+
+    .gameImg {
+        height: 14vw;
+    }
+    
+    .gamesContainer {
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+}
+
