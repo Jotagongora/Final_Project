@@ -5,20 +5,10 @@ import './Games.css';
 
 export default function Games() {
 
-    const {games, setGames} = useContext(GlobalContext);
-
-    const url_games = `https://api.rawg.io/api/games?key=b24718c4e7d741ba95a738653024114d`;
-
-    useEffect(() => {
-        fetch(url_games)
-        .then(response => response.json())
-        .then(data => setGames(data.results))
-        }, []);
-
-    
+    const {games} = useContext(GlobalContext);
 
     return (
-        <div className="allGamesBlock">
+        <div className="bg-purple">
             <div className="searchInput">
                 <h1>Juegos</h1>
                 <input type="search" placeholder="Buscar juegos..."/>
@@ -32,7 +22,7 @@ export default function Games() {
                             <div  className="gameDescription">
                                 <h3>{game.name}</h3>
                                 <ul>
-                                    <li><button>Likes</button><button>Publicaciones</button></li>
+                                    <li><button>Likes</button><button>Publicaciones</button><button>Añadir a biblioteca</button></li>
                                     <li><span>Fecha de lanzamiento: </span><span>{game.released}</span></li>
                                     <li><span>Género: </span><span>{game.genres.map((genre, index)=> {
                                         return (

@@ -31,6 +31,7 @@
     width: 99%;
     margin: auto;
     border-radius: 15px;
+    background-color: black;
 }
 
 .eachFriend > div > h3 {
@@ -38,7 +39,7 @@
     margin: 0px;
     margin-bottom: 5px;
     margin-left: -205px;
-
+    color: white;
 }
 
 .friendImg {
@@ -91,6 +92,11 @@
 
 .removeButton:active {
     color: gray;
+}
+
+.padding-60 {
+    padding-top: 60px;
+    margin-top: 20px;
 }
 
 @media only screen and (min-width: 620px) {

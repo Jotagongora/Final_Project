@@ -22,6 +22,7 @@ export default function Posts() {
                                 <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
                                 <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
+                            <textarea placeholder="Escribe un comentario..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -43,6 +44,7 @@ export default function Posts() {
                             <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
                             <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
                         </div>
+                        <textarea placeholder="Escribe un comentario..."></textarea>
                     </div>
                 </div>
             </div>

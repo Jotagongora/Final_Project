@@ -10,9 +10,19 @@ export const GlobalContext = createContext();
 
 export default function Navbar() {
 
-    const [current, setCurrent] = useState(0);
+    const url_games = `https://api.rawg.io/api/games?key=b24718c4e7d741ba95a738653024114d`;
 
     const [games, setGames] = useState([]);
+
+    useEffect(() => {
+        fetch(url_games)
+        .then(response => response.json())
+        .then(data => setGames(data.results))
+        }, []);
+
+    const [current, setCurrent] = useState(0);
+
+    
 
     return (
         <nav className="principalNav">
@@ -21,6 +31,7 @@ export default function Navbar() {
                     <NavLink to="/User"><i className="fas fa-user"></i></NavLink>
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
+                    <NavLink to="/Message"><i class="fas fa-envelope"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route path="/Friends" component={Friends}/>

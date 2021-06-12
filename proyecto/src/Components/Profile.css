@@ -48,8 +48,8 @@
 .navContainer {
     color: white;
     width: 99%;
-    margin: auto;
     margin-top: 40px;
+    
 }
 
 .borderPost {
@@ -107,7 +107,9 @@
     margin-left: 50px;
     margin-bottom: 20px;
     border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .icons > i > p {
@@ -120,7 +122,25 @@
     border-bottom: 5px solid blue;
 }
 
+textarea {
+    font-size: 15px;
+    width: 99%;
+    border-radius: 10px;
+    height: 20px;
+}
 
+@media screen and (min-width: 709px){
+    
+    .box2 {
+        width: 660px;
+        margin: auto;
+    }
+
+    .toAttachImg {
+        height: 450px;
+        width: 90%;
+    }
+}
 
 
 @media screen and (min-width: 978px){
@@ -130,18 +150,10 @@
         height: 438px;
     }
 
-    .box2 {
-        width: 960px;
-        margin: auto;
-    }
 
     .profileNav {   
         width: 960px;
         margin: auto;
     }
 
-    .toAttachImg {
-        height: 650px;
-        width: 90%;
-    }
 }

@@ -1,8 +1,8 @@
-.allGamesBlock {
+.bg-purple {
     background-color: rgb(87, 0, 128);
 }
 
-.allGamesBlock > .searchInput > h1{
+.bg-purple > .searchInput > h1{
     color: white;
 }
 
@@ -17,6 +17,31 @@
     background-color: black;
     color: white;
 }
+
+.library {
+    font-size: 15px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 50%;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+
+
+.gameLibrary {
+    margin: auto;
+    width: 100%;
+    height: 30vw;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-position: center;
+    background-size: cover;
+}
+
+
 
 
 .gameImg {
@@ -36,8 +61,7 @@
 .gameDescription > ul > li {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid white;    
+    padding: 10px;   
 }
 
 @media screen and (min-width: 600px){
@@ -56,6 +80,15 @@
     .gameContainer {
        width: 90%;
     }
+
+    .library {
+        width: 90%;
+    }
+    
+    
+    .gameLibrary {
+       height: 30vw;
+    }
     
 }
 
@@ -70,6 +103,23 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
+    
+    .gameLibrary {
+        height: 20vw;
+     }
+    
+}
+
+@media screen and (min-width: 1200px){
+
+    .library {
+        width: 324px;
+    }
+
+    .gameLibrary {
+        height: 242px;
+     }
+    
     
 }
 

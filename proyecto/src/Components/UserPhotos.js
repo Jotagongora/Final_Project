@@ -20,7 +20,7 @@ export default function UserPhotos() {
         <div>
             <div className="bgPostColor">
                 <div className="navContainer">
-                    <div className="box2">
+                    <div>
                        <div className="gridPhotosContainer">
                        {SliderData.map((slide, index) => { 
                         return (
