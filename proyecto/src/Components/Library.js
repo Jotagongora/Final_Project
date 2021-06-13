@@ -15,7 +15,6 @@ export default function Library() {
                             <div className="gameLibrary" style={{backgroundImage: `url(${game.background_image})`}}></div>
                             <div  className="gameDescription">
                                 <h3>{game.name}</h3>
-                                <button>Eliminar</button>
                             </div>
                         </div>
                     )

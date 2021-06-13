@@ -43,7 +43,6 @@
 }
 
 .friendImg {
-    background-image: url("../Images/imagenfondo.jpg");
     background-position: center;
     background-size: cover;
     width: 70px;

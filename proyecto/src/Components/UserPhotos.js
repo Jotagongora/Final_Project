@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import {SliderData} from './SliderData';
+import {SliderData} from '../Data/SliderData';
 import {useHistory} from 'react-router-dom';
 import {GlobalContext} from '../Navbar';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Friends.css';
+import {UsersData} from '../Data/UsersData';
 
 export default function Friends() {
     return (
@@ -11,78 +12,18 @@ export default function Friends() {
             </div>
             <div>
                 <ul className="friendList">
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Manuel García</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Paula Miranda</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Jesús Fernandez</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Sergio Ramos</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Zinedine Zidane</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Roberto Carlos</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Ron Wesley</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Harry Potter</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
-                    <li className="eachFriend">
-                        <div className="friendImg"></div>
-                        <div className="friendButtons">
-                            <h3>Gandalf el blanco</h3>
-                            <button className="profileButton">Ver perfil</button>
-                            <button className="removeButton">Eliminar</button>
-                        </div>
-                    </li>
+                    {UsersData.map((user, index)=> {
+                        return (
+                        <li className="eachFriend">
+                            <div className="friendImg" style={{backgroundImage: `url(${user.image})`}}></div>
+                            <div className="friendButtons">
+                                <h3>{user.username}</h3>
+                                <button className="profileButton">Ver perfil</button>
+                                <button className="removeButton">Eliminar</button>
+                            </div>
+                        </li>
+                        )
+                     })}
                 </ul>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext} from 'react';
-import {SliderData} from './SliderData';
+import {SliderData} from '../Data/SliderData';
 import {GlobalContext} from '../Navbar';
 import ImageSliderCss from './ImageSlider.css';
 
