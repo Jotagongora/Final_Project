@@ -4,6 +4,7 @@ import {Route, BrowserRouter as Router, NavLink, Switch} from 'react-router-dom'
 import Profile from './Components/Profile';
 import Friends from './Components/Friends';
 import Games from './Components/Games';
+import Messages from './Components/Messages';
 import './Components/Navbar.css';
 
 export const GlobalContext = createContext();
@@ -31,11 +32,12 @@ export default function Navbar() {
                     <NavLink to="/User"><i className="fas fa-user"></i></NavLink>
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
-                    <NavLink to="/Message"><i className="fas fa-envelope"></i></NavLink>
+                    <NavLink to="/Messages"><i className="fas fa-envelope"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route path="/Friends" component={Friends}/>
                         <Route path="/Games" component={Games}/>
+                        <Route path="/Messages" component={Messages}/>
                     </Switch>
                 </GlobalContext.Provider>
             </Router>
