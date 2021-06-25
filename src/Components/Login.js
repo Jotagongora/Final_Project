@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router, NavLink, Switch, Route} from 'react-router-dom';
 import './Login.css';
 import Logo from '../Images/logo_transparent.png';
 
@@ -19,7 +20,7 @@ export default function Login() {
                         <input className="input" type="text" id="passwordInput" placeholder="Introduce tu contraseña"/>
                     </div>
                     <div className="accountBlock">
-                        <a href="" className="link">Crear cuenta</a>
+                        <NavLink className="link" to="/CreateAccount">Crear cuenta</NavLink>
                         <button>Iniciar sesión</button>
                     </div>
                 </form>
