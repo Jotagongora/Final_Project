@@ -10,7 +10,7 @@ export default function Login() {
             <div>
                 <img className="logo" src={Logo} alt="Logo" width="50%"/>
                 <h2>Iniciar sesión</h2>
-                <form action="">
+                <form action="http://localhost:8000/login" method="POST">
                     <div>
                         <label htmlFor="emailInput">Email : </label>
                         <input className="input" type="text" id="emailInput" placeholder="Introduce tu correo electrónico"/>
