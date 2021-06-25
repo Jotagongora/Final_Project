@@ -7,23 +7,30 @@ export default function CreateAccount() {
         <div className="login">
             <div className="loginImg"></div>
             <div>
-                <img className="logo" src={Logo} alt="Logo" width="50%"/>
                 <h2>Crear cuenta</h2>
-                <form action="POST">
+                <form action="http://localhost:8000/api" method="POST">
+                    <div>
+                        <label htmlFor="username">Nombre : </label>
+                        <input className="input" type="text" id="name" name="name" placeholder="Introduce tu nombre"/>
+                    </div>
+                    <div>
+                        <label htmlFor="lastname">Apellido : </label>
+                        <input className="input" type="text" id="lastname" name="lastname" placeholder="Introduce tu nombre de usuario"/>
+                    </div>
                     <div>
                         <label htmlFor="username">Nombre de usuario : </label>
-                        <input className="input" type="text" id="username" placeholder="Introduce tu nombre de usuario"/>
+                        <input className="input" type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario"/>
                     </div>
                     <div>
                         <label htmlFor="emailInput">Email : </label>
-                        <input className="input" type="text" id="emailInput" placeholder="Introduce tu correo electrónico"/>
+                        <input className="input" type="text" id="emailInput" name="email" placeholder="Introduce tu correo electrónico"/>
                     </div>
                     <div>
                         <label htmlFor="passwordInput">Contraseña : </label>
-                        <input className="input" type="text" id="passwordInput" placeholder="Introduce tu contraseña"/>
+                        <input className="input" type="text" id="passwordInput" name="password" placeholder="Introduce tu contraseña"/>
                     </div>
                     <div className="accountBlock">
-                        <a href="" className="link">Crear cuenta</a>
+                        <button>Crear cuenta</button>
                     </div>
                 </form>
             </div>
