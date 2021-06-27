@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {BrowserRouter as Router, NavLink, Switch, Route} from 'react-router-dom';
 import './Login.css';
 import Logo from '../Images/logo_transparent.png';
 
 export default function Login() {
+
+    // const requestOptions = {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' }
+    //  };
+
+    // useEffect(() => {
+    //     fetch("http://localhost:8000/api/login", requestOptions)
+    //     .then(response => response.json())
+    //     .then(data => )
+    //     }, []);
+
+
     return (
         <div className="login">
             <div className="loginImg"></div>
