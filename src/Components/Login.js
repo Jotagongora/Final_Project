@@ -6,33 +6,38 @@ import Logo from '../Images/logo_transparent.png';
 export default function Login() {
 
     const [loginUser, setLoginUser] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(loginUser)
      };
 
-     let sendInfo = false;
-
-     const sendFunction = (e) => {
-         sendInfo = !sendInfo;
-     }
+     console.log(loginUser);
      
     useEffect(() => {
         fetch("http://localhost:8000/api/login_check", requestOptions)
         .then(response => response.json())
-        .then(data => data)
-        }, [sendInfo]);
-    
+        .then(data => console.log(data));
+        }, [loginUser]);
+
+    const newLoginUser = {...loginUser};
 
     const changeHandler = (e) => {
-        setLoginUser({[e.target.name]: e.target.value,});
-        console.log(loginUser);
+        if (e.target.name === "username") {
+        newLoginUser.username = e.target.value;
+        } else {
+            newLoginUser.password = e.target.value;
+        }
     }
 
+    function submitHandler (e) {
+        e.preventDefault();
+        setLoginUser(newLoginUser);
+    }
     
 
 
@@ -42,10 +47,10 @@ export default function Login() {
             <div>
                 <img className="logo" src={Logo} alt="Logo" width="50%"/>
                 <h2>Iniciar sesión</h2>
-                <form onSubmit={sendFunction}>
+                <form>
                     <div>
                         <label htmlFor="emailInput">Email : </label>
-                        <input className="input" name="email" type="text" onChange={changeHandler} id="emailInput" placeholder="Introduce tu correo electrónico"/>
+                        <input className="input" name="username" type="text" onChange={changeHandler} id="emailInput" placeholder="Introduce tu correo electrónico"/>
                     </div>
                     <div>
                         <label htmlFor="passwordInput">Contraseña : </label>
@@ -53,7 +58,7 @@ export default function Login() {
                     </div>
                     <div className="accountBlock">
                         <NavLink className="link" to="/CreateAccount">Crear cuenta</NavLink>
-                        <button type="submit">Iniciar sesión</button>
+                        <button onClick={submitHandler} type="submit">Iniciar sesión</button>
                     </div>
                 </form>
             </div>
