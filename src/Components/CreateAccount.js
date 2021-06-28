@@ -8,7 +8,7 @@ export default function CreateAccount() {
             <div className="loginImg"></div>
             <div>
                 <h2>Crear cuenta</h2>
-                <form action="http://localhost:8000/api" method="POST">
+                <form action="http://localhost:8000/api/register" method="POST">
                     <div>
                         <label htmlFor="username">Nombre : </label>
                         <input className="input" type="text" id="name" name="name" placeholder="Introduce tu nombre"/>
