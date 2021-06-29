@@ -30,7 +30,7 @@ export default function Login() {
     
         if(response.status === 200) {
             logIn(data.token, data.user);
-            history.push("/Nav");
+            history.push("/Profile");
         } else {
             alert("credenciales incorrectas")
         }

@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.login {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+.loginImg {
+    background-image: url("../Images/imagenfondo.jpg");
+    background-position: center;
+    height: 100px;
+}
+
+.logo {
+    margin-bottom: 2%;
+    margin-top: -5%;
+}
+
+
+form > div {
+    padding-top: 20px;
+    text-align: right;
+}
+
+form > div > .input {
+    margin-right: 10%;
+    width: 60%;
+}
+
+
+form > div > button {
+    border: none;
+    font-size: 15px;
+    background-color: #77C9D4;
+    color: white;
+    height:auto;
+}
+
+form > div > button:hover {
+    cursor: pointer;
+    background-color: #57BC90;
+}
+
+.accountBlock {
+    margin: 8%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.link {
+    text-decoration: none;
+    color: #77C9D4;
+}
+
+.link:hover {
+    cursor: pointer;
+    color: #57BC90;
+}
+
+
+@media only screen and (min-width: 330px) {
+
+    form > div > .input {
+        margin-right: 13%;
+        width: 60%;
+    }
+
+    * {
+        font-size: 16px;
+    }
+
+    form > div > button {
+        font-size: 18px;
+    }
+
+}
+
+
+@media only screen and (min-width: 768px) {
+    .login {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .loginImg {
+        height: 100vh;
+    }
+
+    .logo {
+        margin-bottom: 10%;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    
+    form > div > .input {
+        margin-right: 25%;
+        width: 40%;
+    }
+
+    .logo {
+        margin-bottom: 2%;
+    }
+
+    * {
+        font-size: 18px;
+    }
+
+    form > div > button {
+        font-size: 20px;
+    }
+}

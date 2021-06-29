@@ -1,0 +1,33 @@
+.principalNav {
+    height: 80px;
+    background-color: black;
+}
+
+.principalNav > a {
+    text-decoration: none;
+}
+
+.principalNav > a > i {
+    font-size: 30px;
+    padding-top: 30px;
+    color: white;
+    margin-bottom: 20px;
+    padding-right: 70px;
+}
+
+
+.principalNav > a > i:hover {
+    color: aquamarine;
+}
+
+@media screen and (min-width: 678px){
+    
+    
+    .principalNav > a > i {
+        font-size: 35px;
+        padding-top: 25px;
+        margin-bottom: 20px;
+        padding-right: 95px;
+    }
+
+}
