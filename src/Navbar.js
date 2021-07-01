@@ -1,11 +1,11 @@
 import React, { createContext, useState } from 'react';
 import {useEffect} from 'react';
 import {Route, BrowserRouter as Router, NavLink, Switch} from 'react-router-dom';
-import Profile from './Components/Profile';
-import Friends from './Components/Friends';
-import Games from './Components/Games';
-import Messages from './Components/Messages';
-import './Components/Navbar.css';
+import Profile from './pages/Profile';
+import Friends from './pages/Friends';
+import Games from './pages/Games';
+import Messages from './pages/Messages';
+import './pages/Navbar.css';
 
 export const GlobalContext = createContext();
 
