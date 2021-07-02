@@ -4,24 +4,37 @@ export default function Posts() {
 
     const [post, setPost] = useState([]);
 
+    const [user, setUser] =  useState([]);
+
+    const token = localStorage.getItem('TOKEN_KEY');
+
+    const AuthStr = 'Bearer '.concat(token);
     
     
-    const option = [
-        { 
-            headers: [
-                {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer +${localStorage.getItem("TOKEN_KEY")}`
-            }]}];
+    const option = 
+        { headers: 
+            {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': AuthStr,
+            
+            }};
 
-    useEffect(() => {
-        fetch("http://localhost:8000/api/12", option)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        }, [post]);
+        useEffect(() => {
+            fetch("http://localhost:8000/api/12", option)
+            .then(response => response.json())
+            .then(data => setUser(data))
+            }, []);
 
-        
+        useEffect(() => {
+            fetch("http://localhost:8000/api/12", option)
+            .then(response => response.json())
+            .then(data => setPost(data.posts))
+            }, []);
+
+    console.log(post);
+    console.log(user);
+            
     return (
         <div>
             {post.map((post, index)=> {
@@ -30,7 +43,7 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
-                            <div className="postImg"></div>
+                            <div className="postImg" style={{backgroundImage: `url(${post.post_avatar})`}}></div>
                             <div>
                                 <h1>{post.title}</h1>
                                 <p>{post.created_at}</p>
