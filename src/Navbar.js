@@ -11,6 +11,7 @@ export const GlobalContext = createContext();
 
 export default function Navbar() {
 
+
     const url_games = `https://api.rawg.io/api/games?key=b24718c4e7d741ba95a738653024114d`;
 
     const [games, setGames] = useState([]);
@@ -22,6 +23,7 @@ export default function Navbar() {
         }, []);
 
     const [current, setCurrent] = useState(0);
+
 
     
 

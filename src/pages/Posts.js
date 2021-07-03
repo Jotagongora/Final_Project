@@ -21,13 +21,13 @@ export default function Posts() {
             }};
 
         useEffect(() => {
-            fetch("http://localhost:8000/api/12", option)
+            fetch("http://localhost:8000/api/17", option)
             .then(response => response.json())
             .then(data => setUser(data))
             }, []);
 
         useEffect(() => {
-            fetch("http://localhost:8000/api/12", option)
+            fetch("http://localhost:8000/api/17", option)
             .then(response => response.json())
             .then(data => setPost(data.posts))
             }, []);

@@ -29,6 +29,7 @@ export default function Login() {
         const data = await response.json();
     
         if(response.status === 200) {
+            console.log(data);
             logIn(data.token, data.user);
             history.push("/Profile");
         } else {
