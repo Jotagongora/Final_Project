@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 export default function FriendOfFriends() {
+
+    const [friendsOfFriends, setFriendsOfFriends] = useState([]);
+
+    const token = localStorage.getItem('TOKEN_KEY');
+
+    const AuthStr = 'Bearer '.concat(token);
+    
+    
+    const option = 
+        { headers: 
+            {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': AuthStr,
+            
+            }};
+
+        useEffect(() => {
+            fetch("http://localhost:8000/api/17", option)
+            .then(response => response.json())
+            .then(data => console.log(data.friends))
+            }, []);
     return (
         <div>
+            {}
             <div className="bg-purple">
             <div className="padding-60">
                 <ul className="friendList">

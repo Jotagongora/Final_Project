@@ -37,6 +37,20 @@ export default function Posts() {
             
     return (
         <div>
+            <div className="bgPostColor">
+                <div className="navContainer">
+                    <div className="box2">
+                        <div className="borderPost">
+                            <textarea placeholder="¿En qué piensas?" className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
+                            <button>Adjuntar foto</button>
+                        </div>
+                        <div className="DownBorderPost">
+                            <button>Publicar</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
             {post.map((post, index)=> {
         return (
              <div className="bgPostColor">
