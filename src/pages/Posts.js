@@ -40,12 +40,12 @@ export default function Posts() {
             <div className="bgPostColor">
                 <div className="navContainer">
                     <div className="box2">
-                        <div className="borderPost">
-                            <textarea placeholder="¿Título?" className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
-                            <textarea placeholder="¿En qué piensas?" className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
-                            <label htmlFor="attachImgFile">Adjuntar</label>
-                            <input className="attachImgButton" id="attachImgFile" type="file"/>
-                        </div>
+                        <form className="borderPost">
+                            <textarea placeholder="Título" className="" name="newPost" id="" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
+                            <label htmlFor="attachImgFile"><i className="attachIcon fas fa-paperclip"></i></label>
+                            <input className="attachImgButton" id="attachImgFile" type="file"/>     
+                        </form>
                         <div className="DownBorderPost">
                             <button>Publicar</button>
                         </div>

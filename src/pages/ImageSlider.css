@@ -56,7 +56,7 @@
 
 .slide.active {
     opacity: 1;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     transform: scale(1.08);
 }
 
