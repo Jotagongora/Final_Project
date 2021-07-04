@@ -41,8 +41,10 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <div className="borderPost">
+                            <textarea placeholder="¿Título?" className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
                             <textarea placeholder="¿En qué piensas?" className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
-                            <button>Adjuntar foto</button>
+                            <label htmlFor="attachImgFile">Adjuntar</label>
+                            <input className="attachImgButton" id="attachImgFile" type="file"/>
                         </div>
                         <div className="DownBorderPost">
                             <button>Publicar</button>

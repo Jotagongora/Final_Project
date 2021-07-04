@@ -83,7 +83,13 @@
 .newPost {
     margin: 20px 5px 20px 5px;
     width: 90%;
-    padding: 17px;
+    padding: 23px;
+    resize: none;
+}
+
+.attachImgButton {
+    margin-bottom: 20px;
+    visibility: hidden;
 }
 
 .postImg {
