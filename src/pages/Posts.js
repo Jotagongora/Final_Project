@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import jwt_decode from 'jwt-decode';
 
 export default function Posts() {
 
@@ -7,6 +8,8 @@ export default function Posts() {
     const [user, setUser] =  useState([]);
 
     const token = localStorage.getItem('TOKEN_KEY');
+
+    let decodedT = jwt_decode(token);
 
     const AuthStr = 'Bearer '.concat(token);
     

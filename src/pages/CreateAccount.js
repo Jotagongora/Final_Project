@@ -23,11 +23,11 @@ export default function CreateAccount() {
                     </div>
                     <div>
                         <label htmlFor="emailInput">Email : </label>
-                        <input className="input" type="text" id="emailInput" name="email" placeholder="Introduce tu correo electrónico"/>
+                        <input className="input" type="email" id="emailInput" name="email" placeholder="Introduce tu correo electrónico"/>
                     </div>
                     <div>
                         <label htmlFor="passwordInput">Contraseña : </label>
-                        <input className="input" type="text" id="passwordInput" name="password" placeholder="Introduce tu contraseña"/>
+                        <input className="input" type="password" id="passwordInput" name="password" placeholder="Introduce tu contraseña"/>
                     </div>
                     <div className="accountBlock">
                         <button>Crear cuenta</button>
