@@ -11,7 +11,7 @@ export default function Pages() {
         <Switch>
           <Route path="/Login" component={Login}/>
           <Route path="/CreateAccount" component={CreateAccount}/>
-          <PrivateRoute path="/Profile">
+          <PrivateRoute path="/User">
               <Navbar/>
           </PrivateRoute>
         </Switch>

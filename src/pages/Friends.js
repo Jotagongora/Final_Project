@@ -7,6 +7,8 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Friends() {
 
+    const {LoggedInUser} = useAuthContext();
+
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
@@ -23,7 +25,7 @@ export default function Friends() {
             }};
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/17", option)
+        fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
         .then(response => response.json())
         .then(data => setFriend(data.friends))
         }, []);

@@ -1,17 +1,44 @@
 import React, {useEffect, useState} from 'react';
 import jwt_decode from 'jwt-decode';
+import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Posts() {
 
+    const {LoggedInUser} = useAuthContext();
+
     const [post, setPost] = useState([]);
+
+    const formData = new FormData();
 
     const [user, setUser] =  useState([]);
 
     const token = localStorage.getItem('TOKEN_KEY');
 
-    let decodedT = jwt_decode(token);
-
     const AuthStr = 'Bearer '.concat(token);
+
+    
+
+    const submit = e => {
+
+        e.preventDefault();
+
+        const option2 = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': AuthStr,},
+            body: formData
+            
+        }
+
+        fetch('http://localhost:8000/api/addPost', option2)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+
+    function handleChange(e) {
+        formData.append(e.target.name, e.target.value)
+    }
     
     
     const option = 
@@ -20,37 +47,36 @@ export default function Posts() {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Authorization': AuthStr,
-            
-            }};
+        }};
+
+        
 
         useEffect(() => {
-            fetch("http://localhost:8000/api/17", option)
+            fetch(`http://localhost:8000/api/${LoggedInUser}` , option)
             .then(response => response.json())
             .then(data => setUser(data))
             }, []);
 
         useEffect(() => {
-            fetch("http://localhost:8000/api/17", option)
+            fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
             .then(response => response.json())
             .then(data => setPost(data.posts))
             }, []);
-
-    console.log(post);
-    console.log(user);
             
     return (
         <div>
             <div className="bgPostColor">
                 <div className="navContainer">
                     <div className="box2">
-                        <form className="borderPost">
-                            <textarea placeholder="Título" className="" name="newPost" id="" cols="30" rows="20"></textarea>
-                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newPost" id="" cols="30" rows="20"></textarea>
-                            <label htmlFor="attachImgFile"><i className="attachIcon fas fa-paperclip"></i></label>
-                            <input className="attachImgButton" id="attachImgFile" type="file"/>     
+                        <form onSubmit={submit} className="borderPost">
+                            <textarea placeholder="Título" className="" onChange={handleChange} name="newTitlePost" id="" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Escribe lo que te apetezca aquí..." onChange={handleChange} className="newPost" name="newContentPost" id="" cols="30" rows="20"></textarea>
+                            <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
+                            <input className="attachImgButton" id="postImage" name="postImage" type="file"/>  
+                            <button>Publicar</button>   
                         </form>
                         <div className="DownBorderPost">
-                            <button>Publicar</button>
+                            
                         </div>
                     </div>
                 </div>

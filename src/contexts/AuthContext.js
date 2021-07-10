@@ -14,9 +14,9 @@ export default function AuthContextProvider({children}) {
 
     const isAdmin = () => LoggedInUser.role === "ADMIN";
 
-    const logIn = (token, user) => {
+    const logIn = (token, id) => {
         setToken(token);
-        setLoggedInUser(user);
+        setLoggedInUser(id);
         setIsAuthenticated(true);
     }
 
@@ -29,7 +29,8 @@ export default function AuthContextProvider({children}) {
     const contextValue = {
         logIn,
         logOut,
-        isAuthenticated
+        isAuthenticated,
+        LoggedInUser
     }
 
     return (
