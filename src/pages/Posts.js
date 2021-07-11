@@ -16,29 +16,63 @@ export default function Posts() {
 
     const formData = new FormData;
 
-    
+    const fileInput = document.querySelector('#postImage');
 
+    const titileInput = document.querySelector('#titleInput');
 
-    
+    const contentInput = document.querySelector('#contentInput');
+
+    const commentData = new FormData;
+
+    const commentInput = document.querySelector('#commentInput');
+
+    const postAuthorId = document.querySelector('#postAuthorId');
+
 
     const submit = e => {
 
         e.preventDefault();
-        formData.append("newTitlePost", "hola");
+        
+        formData.append("newTitlePost", titileInput.value);
+        formData.append("newContentPost", contentInput.value);
+        formData.append("postImage", fileInput.files[0]);
 
         const option2 = {
             method: "POST",
             headers: {'Accept': 'application/json',
             'Authorization': AuthStr,},
-            body: formData
-            
+            body: formData 
         }
 
         fetch('http://localhost:8000/api/addPost', option2)
         .then(response => response.json())
         .then(data => data);
+
+        titileInput.value = "";
+        contentInput.value = "";
+        fileInput.value = "";
     }
     
+    const submitComment = e => {
+
+        e.preventDefault();
+        
+        commentData.append("commentInput", commentInput.value);
+        commentData.append("postAuthorId", Number(postAuthorId.value));
+
+        const option2 = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: commentData 
+        }
+
+        fetch('http://localhost:8000/api/addComment', option2)
+        .then(response => response.json())
+        .then(data => console.log(data));
+
+        commentInput.value = "";
+    }
     
     const option = 
         { headers: 
@@ -68,8 +102,8 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <form onSubmit={submit} className="borderPost">
-                            <textarea placeholder="Título" className="" name="newTitlePost" id="" cols="30" rows="20"></textarea>
-                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Título" className="" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
                             <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
                             <input className="attachImgButton" id="postImage" name="postImage" type="file"/>  
                             <button>Publicar</button>   
@@ -104,7 +138,11 @@ export default function Posts() {
                                 <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
                                 <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
-                            <textarea placeholder="Escribe un comentario..."></textarea>
+                            <form onSubmit={submitComment}>
+                                <textarea name="commentInput" id="commentInput" placeholder="Escribe un comentario..."></textarea>
+                                <input type="hidden" name="postAuthorId" id="postAuthorId" value={post.post_id}/>
+                                <button>Publicar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
