@@ -8,24 +8,27 @@ export default function Posts() {
 
     const [post, setPost] = useState([]);
 
-    const formData = new FormData();
-
     const [user, setUser] =  useState([]);
 
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
 
+    const formData = new FormData;
+
+    
+
+
     
 
     const submit = e => {
 
         e.preventDefault();
+        formData.append("newTitlePost", "hola");
 
         const option2 = {
             method: "POST",
             headers: {'Accept': 'application/json',
-            'Content-Type': 'application/json',
             'Authorization': AuthStr,},
             body: formData
             
@@ -33,11 +36,7 @@ export default function Posts() {
 
         fetch('http://localhost:8000/api/addPost', option2)
         .then(response => response.json())
-        .then(data => console.log(data));
-    }
-
-    function handleChange(e) {
-        formData.append(e.target.name, e.target.value)
+        .then(data => data);
     }
     
     
@@ -69,8 +68,8 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <form onSubmit={submit} className="borderPost">
-                            <textarea placeholder="Título" className="" onChange={handleChange} name="newTitlePost" id="" cols="30" rows="20"></textarea>
-                            <textarea placeholder="Escribe lo que te apetezca aquí..." onChange={handleChange} className="newPost" name="newContentPost" id="" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Título" className="" name="newTitlePost" id="" cols="30" rows="20"></textarea>
+                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="" cols="30" rows="20"></textarea>
                             <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
                             <input className="attachImgButton" id="postImage" name="postImage" type="file"/>  
                             <button>Publicar</button>   
