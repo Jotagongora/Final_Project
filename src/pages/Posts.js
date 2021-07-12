@@ -18,7 +18,7 @@ export default function Posts() {
 
     const fileInput = document.querySelector('#postImage');
 
-    const titileInput = document.querySelector('#titleInput');
+    const titleInput = document.querySelector('#titleInput');
 
     const contentInput = document.querySelector('#contentInput');
 
@@ -39,7 +39,7 @@ export default function Posts() {
 
         e.preventDefault();
         
-        formData.append("newTitlePost", titileInput.value);
+        formData.append("newTitlePost", titleInput.value);
         formData.append("newContentPost", contentInput.value);
         formData.append("postImage", fileInput.files[0]);
 
@@ -50,13 +50,16 @@ export default function Posts() {
             body: formData 
         }
 
+        if (titleInput.value != "" && contentInput.value != "") {
+
         fetch('http://localhost:8000/api/addPost', option2)
         .then(response => response.json())
         .then(data => data);
 
-        titileInput.value = "";
+        titleInput.value = "";
         contentInput.value = "";
         fileInput.value = "";
+        }
     }
     
     const submitComment = e => {
@@ -73,12 +76,15 @@ export default function Posts() {
             body: commentData 
         }
 
+        if (e.target[0].value != "") {
+
         fetch('http://localhost:8000/api/addComment', option2)
         .then(response => response.json())
         .then(data => data);
 
         e.target[0].value = "";
         e.target[1].value = "";
+        }
     }
     
     const option = 
