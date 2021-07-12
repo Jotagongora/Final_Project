@@ -24,9 +24,15 @@ export default function Posts() {
 
     const commentData = new FormData;
 
-    const commentInput = document.querySelector('#commentInput');
+    const commentInput = document.querySelectorAll('#commentInput');
 
-    const postAuthorId = document.querySelector('#postAuthorId');
+    const postId = document.querySelectorAll('#postId');
+    
+
+    const changeHandler = e => {
+        e.preventDefault();
+        e.target.name = e.target.value;
+    }
 
 
     const submit = e => {
@@ -57,8 +63,8 @@ export default function Posts() {
 
         e.preventDefault();
         
-        commentData.append("commentInput", commentInput.value);
-        commentData.append("postAuthorId", Number(postAuthorId.value));
+        commentData.set("commentInput", e.target[0].value);
+        commentData.set("postId", e.target[1].value);
 
         const option2 = {
             method: "POST",
@@ -69,9 +75,10 @@ export default function Posts() {
 
         fetch('http://localhost:8000/api/addComment', option2)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => data);
 
-        commentInput.value = "";
+        e.target[0].value = "";
+        e.target[1].value = "";
     }
     
     const option = 
@@ -139,8 +146,8 @@ export default function Posts() {
                                 <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
                             <form onSubmit={submitComment}>
-                                <textarea name="commentInput" id="commentInput" placeholder="Escribe un comentario..."></textarea>
-                                <input type="hidden" name="postAuthorId" id="postAuthorId" value={post.post_id}/>
+                                <textarea name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>
+                                <input type="hidden" name="postId" id="postId" value={post.post_id}/>
                                 <button>Publicar</button>
                             </form>
                         </div>
