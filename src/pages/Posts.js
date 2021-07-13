@@ -27,6 +27,10 @@ export default function Posts() {
     const commentInput = document.querySelectorAll('#commentInput');
 
     const postId = document.querySelectorAll('#postId');
+
+    
+
+    
     
 
     const changeHandler = e => {
@@ -34,6 +38,15 @@ export default function Posts() {
         e.target.name = e.target.value;
     }
 
+    function show (e) {
+        const comments = document.querySelectorAll('#comments');
+        if (comments[e].style.display === "none") {
+        comments[e].style.display = "block";
+        } else {
+            comments[e].style.display = "none";
+        }
+    }
+    
 
     const submit = e => {
 
@@ -108,6 +121,7 @@ export default function Posts() {
             .then(response => response.json())
             .then(data => setPost(data.posts))
             }, []);
+        
             
     return (
         <div>
@@ -130,7 +144,7 @@ export default function Posts() {
             </div>
             {post.map((post, index)=> {
         return (
-             <div className="bgPostColor">
+             <div id="posts" className="bgPostColor">
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
@@ -149,7 +163,15 @@ export default function Posts() {
                             <p>{post.content_text}</p>
                             <div className="icons">
                                 <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
-                                <i className="far fa-lg fa-comments"><p>Ver comentarios</p></i>
+                                <i onClick={() => show(index)} className="showComments far fa-lg fa-comments"><p>Ver comentarios</p></i>
+                            </div>
+                            <div id="comments" style={{display: "none"}}>
+                                {post.comments.map((comment, i) => {
+                                
+                                    return (
+                                       <p key={i}>{comment.content_text}</p>
+                                    )
+                                })} 
                             </div>
                             <form onSubmit={submitComment}>
                                 <textarea name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>

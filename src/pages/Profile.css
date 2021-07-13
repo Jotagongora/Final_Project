@@ -132,6 +132,10 @@
     font-size: 15px;
 }
 
+.showComments:hover {
+    cursor: pointer;
+}
+
 .isActive {
     border-bottom: 5px solid blue;
 }
