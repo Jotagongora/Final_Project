@@ -8,8 +8,6 @@ export default function Posts() {
 
     const [post, setPost] = useState([]);
 
-    const [user, setUser] =  useState([]);
-
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
@@ -27,6 +25,10 @@ export default function Posts() {
     const commentInput = document.querySelectorAll('#commentInput');
 
     const postId = document.querySelectorAll('#postId');
+
+    const likeData = new FormData;
+
+    const [chargeFetch, setChargeFetch] = useState(false);
 
     
 
@@ -73,7 +75,10 @@ export default function Posts() {
         contentInput.value = "";
         fileInput.value = "";
         }
+
+        setChargeFetch(!chargeFetch);
     }
+
     
     const submitComment = e => {
 
@@ -98,6 +103,26 @@ export default function Posts() {
         e.target[0].value = "";
         e.target[1].value = "";
         }
+
+        setChargeFetch(!chargeFetch);
+    }
+
+    function send (post) {
+
+        likeData.append("post", post);
+
+        const option2 = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: likeData 
+        }
+
+        fetch('http://localhost:8000/api/addLike', option2)
+        .then(response => response.json())
+        .then(data => data);
+
+        setChargeFetch(!chargeFetch);
     }
     
     const option = 
@@ -108,19 +133,12 @@ export default function Posts() {
           'Authorization': AuthStr,
         }};
 
-        
-
-        useEffect(() => {
-            fetch(`http://localhost:8000/api/${LoggedInUser}` , option)
-            .then(response => response.json())
-            .then(data => setUser(data))
-            }, []);
 
         useEffect(() => {
             fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
             .then(response => response.json())
             .then(data => setPost(data.posts))
-            }, []);
+            }, [chargeFetch]);
         
             
     return (
@@ -162,8 +180,8 @@ export default function Posts() {
                         <div className="DownBorderPost">
                             <p>{post.content_text}</p>
                             <div className="icons">
-                                <i className="far fa-lg fa-thumbs-up"><p>Me gusta</p></i>
-                                <i onClick={() => show(index)} className="showComments far fa-lg fa-comments"><p>Ver comentarios</p></i>
+                                <i onClick={() => send(post.post_id)} className="hover far fa-lg fa-thumbs-up"><p>Me gusta {post.likes}</p></i>
+                                <i onClick={() => show(index)} className="hover far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
                             <div id="comments" style={{display: "none"}}>
                                 {post.comments.map((comment, i) => {
