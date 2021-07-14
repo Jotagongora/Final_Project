@@ -5,8 +5,13 @@ const AuthContext = createContext({})
 
 export default function AuthContextProvider({children}) {
 
+    const [friendUser, setFriendUser] = useState();
+
+    const [post, setPost] = useState([]);
+
     const [LoggedInUser, setLoggedInUser] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+
 
     const getToken = () => localStorage.getItem("TOKEN_KEY");
     const setToken = token => localStorage.setItem("TOKEN_KEY", token);
@@ -30,7 +35,11 @@ export default function AuthContextProvider({children}) {
         logIn,
         logOut,
         isAuthenticated,
-        LoggedInUser
+        LoggedInUser,
+        friendUser,
+        setFriendUser,
+        setPost,
+        post
     }
 
     return (

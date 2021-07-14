@@ -4,6 +4,7 @@ import {Route, BrowserRouter as Router, NavLink, Switch} from 'react-router-dom'
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import Games from './pages/Games';
+import FriendProfile from './pages/FriendProfile';
 import Messages from './pages/Messages';
 import './pages/Navbar.css';
 
@@ -12,7 +13,7 @@ export const GlobalContext = createContext();
 export default function Navbar() {
 
 
-    const url_games = `https://api.rawg.io/api/games?key=b24718c4e7d741ba95a738653024114d`;
+    const url_games = `https://api.rawg.io/api/games?key=1830970f84b04a418e610352ad907ec7`;
 
     const [games, setGames] = useState([]);
 
@@ -37,9 +38,10 @@ export default function Navbar() {
                     <NavLink to="/Messages"><i className="fas fa-envelope"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
-                        <Route path="/Friends" component={Friends}/>
+                        <Route exact path="/Friends" component={Friends}/>
                         <Route path="/Games" component={Games}/>
                         <Route path="/Messages" component={Messages}/>
+                        <Route exact path="/Friends/FriendProfile" component={FriendProfile}/>
                     </Switch>
                 </GlobalContext.Provider>
             </Router>

@@ -10,7 +10,7 @@ export default function Login() {
     const {logIn} = useAuthContext();
 
     const history = useHistory();
-
+    
     const formInitialState = {username: "", password: ""};
 
     const [form, handleChange] = useForm(formInitialState);

@@ -4,7 +4,7 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Posts() {
 
-    const {LoggedInUser, post, setPost} = useAuthContext();
+    const {friendUser, post, setPost} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
@@ -46,38 +46,9 @@ export default function Posts() {
             comments[e].style.display = "none";
         }
     }
-    
 
-    const submit = e => {
+  
 
-        e.preventDefault();
-        
-        formData.append("newTitlePost", titleInput.value);
-        formData.append("newContentPost", contentInput.value);
-        formData.append("postImage", fileInput.files[0]);
-
-        const option2 = {
-            method: "POST",
-            headers: {'Accept': 'application/json',
-            'Authorization': AuthStr,},
-            body: formData 
-        }
-
-        if (titleInput.value != "" && contentInput.value != "") {
-
-        fetch('http://localhost:8000/api/addPost', option2)
-        .then(response => response.json())
-        .then(data => data);
-
-        titleInput.value = "";
-        contentInput.value = "";
-        fileInput.value = "";
-        }
-
-        setChargeFetch(!chargeFetch);
-    }
-
-    
     const submitComment = e => {
 
         e.preventDefault();
@@ -133,32 +104,18 @@ export default function Posts() {
 
 
         useEffect(() => {
-            fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
+            fetch(`http://localhost:8000/api/Friend/${friendUser}`, option)
             .then(response => response.json())
-            .then(data => setPost(data.posts))
+            .then(data => setPost(data.posts));
             }, [chargeFetch]);
+
+           console.log(post);
         
             
     return (
         <div>
-            <div className="bgPostColor">
-                <div className="navContainer">
-                    <div className="box2">
-                        <form onSubmit={submit} className="borderPost">
-                            <textarea placeholder="Título" className="" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
-                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
-                            <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
-                            <input className="attachImgButton" id="postImage" name="postImage" type="file"/>  
-                            <button>Publicar</button>   
-                        </form>
-                        <div className="DownBorderPost">
-                            
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
             {post.map((post, index)=> {
+                
         return (
              <div id="posts" className="bgPostColor">
                 <div className="navContainer">
