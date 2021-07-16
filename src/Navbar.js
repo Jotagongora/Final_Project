@@ -7,11 +7,13 @@ import Games from './pages/Games';
 import FriendProfile from './pages/FriendProfile';
 import Messages from './pages/Messages';
 import './pages/Navbar.css';
+import {useAuthContext} from './contexts/AuthContext';
 
 export const GlobalContext = createContext();
 
 export default function Navbar() {
 
+    const {logOut} = useAuthContext();
 
     const url_games = `https://api.rawg.io/api/games?key=1830970f84b04a418e610352ad907ec7`;
 
@@ -25,7 +27,9 @@ export default function Navbar() {
 
     const [current, setCurrent] = useState(0);
 
-
+    function logout () {
+        logOut();
+    }
     
 
     return (
@@ -36,6 +40,7 @@ export default function Navbar() {
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
                     <NavLink to="/Messages"><i className="fas fa-envelope"></i></NavLink>
+                    <NavLink onClick={logOut} to="/Messages"><i class="logout fas fa-sign-out-alt"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route exact path="/Friends" component={Friends}/>

@@ -20,6 +20,11 @@
     color: aquamarine;
 }
 
+.logout {
+    float: right;
+}
+
+
 @media screen and (min-width: 678px){
     
     
