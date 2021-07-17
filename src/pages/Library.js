@@ -12,9 +12,9 @@ export default function Library() {
                 {games.map((game, index) => {
                     return (
                         <div  className="library">
-                            <div className="gameLibrary" style={{backgroundImage: `url(${game.background_image})`}}></div>
+                            <div className="gameLibrary" style={{backgroundImage: `url(${game.gameUrl})`}}></div>
                             <div  className="gameDescription">
-                                <h3>{game.name}</h3>
+                                <h3>{game.title}</h3>
                             </div>
                         </div>
                     )

@@ -7,6 +7,28 @@ export default function Games() {
 
     const {games} = useContext(GlobalContext);
 
+    const token = localStorage.getItem('TOKEN_KEY');
+
+    const AuthStr = 'Bearer '.concat(token);
+
+    const GameData = new FormData;
+
+    function addGameToLibrary(id) {
+
+        GameData.append("gameId", id);
+
+        const option = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: GameData 
+        }
+
+        fetch('http://localhost:8000/api/addGame', option)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+
     return (
         <div className="bg-purple">
             <div className="searchInput">
@@ -18,17 +40,13 @@ export default function Games() {
                 {games.map((game, index) => {
                     return (
                         <div  className="gameContainer">
-                            <div className="gameImg" style={{backgroundImage: `url(${game.background_image})`}}></div>
+                            <div className="gameImg" style={{backgroundImage: `url(${game.gameUrl})`}}></div>
                             <div  className="gameDescription">
-                                <h3>{game.name}</h3>
+                                <h3>{game.title}</h3>
                                 <ul>
-                                    <li><button>Likes</button><button>Publicaciones</button><button>Añadir a biblioteca</button></li>
-                                    <li><span>Fecha de lanzamiento: </span><span>{game.released}</span></li>
-                                    <li><span>Género: </span><span>{game.genres.map((genre, index)=> {
-                                        return (
-                                            <span>{genre.name} </span>
-                                        )
-                                    })}</span></li>
+                                    <li><button>Likes</button><button>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir a biblioteca</button></li>
+                                    <li><span>Fecha de lanzamiento: </span><span>{game.releaseDate}</span></li>
+                                    <li><span>Género: </span><span>{game.genre}</span></li>
                                 </ul>
                             </div>
                         </div>
