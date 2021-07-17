@@ -5,7 +5,7 @@ import FriendPosts from './FriendPosts';
 import UserPhotos from './UserPhotos';
 import ImageSlider from './ImageSlider';
 import FriendOfFriends from './FriendOfFriends';
-import Library from './Library';
+import FriendLibrary from './FriendLibrary';
 
 
 
@@ -25,7 +25,7 @@ export default function FriendProfile() {
                     <nav className="profileNav">
                         <NavLink className="navlinkProfile" to="/Friends/FriendProfile">Publicaciones</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Friends">Amigos</NavLink>
-                        <NavLink className="navlinkProfile" to="/User/Library">Biblioteca</NavLink>
+                        <NavLink className="navlinkProfile" to="/Friend/Library">Biblioteca</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Photos">Fotos</NavLink>
                     </nav>
                 </div>
@@ -33,7 +33,7 @@ export default function FriendProfile() {
                     <Route exact path="/Friends/FriendProfile" component={FriendPosts}/>
                     <Route exact path="/User/Photos" component={UserPhotos}/>
                     <Route path="/User/Friends" component={FriendOfFriends}/>
-                    <Route path="/User/Library" component={Library}/>
+                    <Route path="/Friend/Library" component={FriendLibrary}/>
                     <Route path="/User/Slider" component={ImageSlider}/>
                 </Switch>
             </Router>

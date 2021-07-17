@@ -9,6 +9,8 @@ export default function AuthContextProvider({children}) {
 
     const [post, setPost] = useState([]);
 
+    const [user, setUser] = useState([]);
+
     const [LoggedInUser, setLoggedInUser] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -39,7 +41,10 @@ export default function AuthContextProvider({children}) {
         friendUser,
         setFriendUser,
         setPost,
-        post
+        post,
+        user,
+        setUser
+
     }
 
     return (

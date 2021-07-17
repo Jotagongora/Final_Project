@@ -108,8 +108,6 @@ export default function Posts() {
             .then(response => response.json())
             .then(data => setPost(data.posts));
             }, [chargeFetch]);
-
-           console.log(post);
         
             
     return (

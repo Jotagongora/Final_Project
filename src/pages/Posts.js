@@ -16,6 +16,8 @@ export default function Posts() {
 
     const titleInput = document.querySelector('#titleInput');
 
+    const gameInput = document.querySelector('#game');
+
     const contentInput = document.querySelector('#contentInput');
 
     const commentData = new FormData;
@@ -27,6 +29,10 @@ export default function Posts() {
     const likeData = new FormData;
 
     const [chargeFetch, setChargeFetch] = useState(false);
+
+    const {setUser, user} = useAuthContext();
+
+    
 
     
 
@@ -55,6 +61,7 @@ export default function Posts() {
         formData.append("newTitlePost", titleInput.value);
         formData.append("newContentPost", contentInput.value);
         formData.append("postImage", fileInput.files[0]);
+        formData.append("game", gameInput.value);
 
         const option2 = {
             method: "POST",
@@ -72,6 +79,7 @@ export default function Posts() {
         titleInput.value = "";
         contentInput.value = "";
         fileInput.value = "";
+        gameInput.value = "";
         }
 
         setChargeFetch(!chargeFetch);
@@ -137,6 +145,12 @@ export default function Posts() {
             .then(response => response.json())
             .then(data => setPost(data.posts))
             }, [chargeFetch]);
+
+            useEffect(() => {
+                fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
+                .then(response => response.json())
+                .then(data => setUser(data.library))
+                }, [chargeFetch]);
         
             
     return (
@@ -148,7 +162,15 @@ export default function Posts() {
                             <textarea placeholder="Título" className="" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
                             <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
                             <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
-                            <input className="attachImgButton" id="postImage" name="postImage" type="file"/>  
+                            <input className="attachImgButton" id="postImage" name="postImage" type="file"/>
+                            <select name="game" id="game">
+                                <option value="">Ninguno</option>
+                                {user.map((game, index)=> {
+                                    return (
+                                        <option value={game.id}>{game.title}</option>
+                                    );
+                                })}
+                            </select>
                             <button>Publicar</button>   
                         </form>
                         <div className="DownBorderPost">
