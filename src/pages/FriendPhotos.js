@@ -6,22 +6,15 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 export default function UserPhotos() {
 
-    const {LoggedInUser, setPhotos, photos} = useAuthContext();
+    const {friendUser, setPhotos, photos} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const EditData = new FormData;
-
     const {setCurrent} = useContext(GlobalContext);
 
     let history = useHistory();
-
-    function handleChange() {
-        let docName = document.getElementById('file-upload').files[0].name;
-        document.getElementById('info').innerHTML = docName;
-    }
 
     function handleClick(index) {
         return () => {
@@ -30,30 +23,6 @@ export default function UserPhotos() {
         }   
     }
 
-    const send = e => {
-        e.preventDefault();
-
-        if (true) {
-
-            const fileInput = document.querySelector('#file-upload');
-
-            EditData.append("file-upload", fileInput.files[0]);
-
-            document.getElementById('info').innerHTML = "";
-        }
-    
-        const option2 = {
-            method: "POST",
-            headers: {'Accept': 'application/json',
-            'Authorization': AuthStr,},
-            body: EditData 
-        }
-
-        fetch('http://localhost:8000/api/photos', option2)
-        .then(response => response.json())
-        .then(data => data);
-
-    }
 
     const option = 
         { headers: 
@@ -63,9 +32,8 @@ export default function UserPhotos() {
           'Authorization': AuthStr,
         }};
 
-
     useEffect(() => {
-        fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
+        fetch(`http://localhost:8000/api/${friendUser}`, option)
         .then(response => response.json())
         .then(data => setPhotos(data.photos))
         }, []);
@@ -73,14 +41,6 @@ export default function UserPhotos() {
     return (
         <div>
             <div className="bgPostColor">
-                <form action="" className="upload-image">
-                    <label for="file-upload" className="subir">
-                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
-                    </label>
-                    <input id="file-upload" onChange={handleChange} name="file-upload" type="file" style={{display: "none"}}/>
-                    <p className="upload-name" id="info"></p>
-                    <button onClick={send}>Enviar</button>
-                </form>
                 <div className="navContainer">
                     <div>
                        <div className="gridPhotosContainer">

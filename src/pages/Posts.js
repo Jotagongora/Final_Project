@@ -4,21 +4,13 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Posts() {
 
-    const {LoggedInUser, post, setPost} = useAuthContext();
+    const {LoggedInUser, post, setPost, setUser, user, chargeFetch, setChargeFetch } = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
 
     const formData = new FormData;
-
-    const fileInput = document.querySelector('#postImage');
-
-    const titleInput = document.querySelector('#titleInput');
-
-    const gameInput = document.querySelector('#game');
-
-    const contentInput = document.querySelector('#contentInput');
 
     const commentData = new FormData;
 
@@ -28,16 +20,6 @@ export default function Posts() {
 
     const likeData = new FormData;
 
-    const [chargeFetch, setChargeFetch] = useState(false);
-
-    const {setUser, user} = useAuthContext();
-
-    
-
-    
-
-    
-    
 
     const changeHandler = e => {
         e.preventDefault();
@@ -57,6 +39,14 @@ export default function Posts() {
     const submit = e => {
 
         e.preventDefault();
+
+        const fileInput = document.querySelector('#postImage');
+
+        const titleInput = document.querySelector('#titleInput');
+
+        const gameInput = document.querySelector('#game');
+
+        const contentInput = document.querySelector('#contentInput');
         
         formData.append("newTitlePost", titleInput.value);
         formData.append("newContentPost", contentInput.value);
@@ -74,7 +64,7 @@ export default function Posts() {
 
         fetch('http://localhost:8000/api/addPost', option2)
         .then(response => response.json())
-        .then(data => data);
+        .then(data =>data);
 
         titleInput.value = "";
         contentInput.value = "";

@@ -11,6 +11,10 @@ export default function AuthContextProvider({children}) {
 
     const [user, setUser] = useState([]);
 
+    const [photos, setPhotos] = useState([]);
+
+    const [chargeFetch, setChargeFetch] = useState(false);
+
     const [LoggedInUser, setLoggedInUser] = useState({});
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -43,8 +47,11 @@ export default function AuthContextProvider({children}) {
         setPost,
         post,
         user,
-        setUser
-
+        setUser,
+        photos,
+        setPhotos,
+        chargeFetch,
+        setChargeFetch
     }
 
     return (
