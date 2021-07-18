@@ -1,0 +1,17 @@
+.upload-image {
+    margin: auto;
+
+}
+
+.subir{
+    padding: 5px 10px;
+    background: #f55d3e;
+    color:#fff;
+    border:0px solid #fff;
+}
+ 
+.subir:hover{
+    cursor: pointer;
+    color:#fff;
+    background: #f7cb15;
+}
