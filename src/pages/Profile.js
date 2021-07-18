@@ -4,7 +4,7 @@ import './Profile.css';
 import Posts from './Posts';
 import UserPhotos from './UserPhotos';
 import ImageSlider from './ImageSlider';
-import FriendOfFriends from './FriendOfFriends';
+import EditProfile from './EditProfile';
 import Library from './Library';
 
 
@@ -22,7 +22,7 @@ export default function Profile() {
                 <div>
                     <nav className="profileNav">
                         <NavLink className="navlinkProfile" to="/User">Publicaciones</NavLink>
-                        <NavLink className="navlinkProfile" to="/User/Friends">Editar Perfil</NavLink>
+                        <NavLink className="navlinkProfile" to="/User/EditProfile">Editar Perfil</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Library">Biblioteca</NavLink>
                         <NavLink className="navlinkProfile" to="/User/Photos">Fotos</NavLink>
                     </nav>
@@ -30,9 +30,9 @@ export default function Profile() {
                 <Switch>
                     <Route exact path="/User" component={Posts}/>
                     <Route exact path="/User/Photos" component={UserPhotos}/>
-                    <Route path="/User/Friends" component={FriendOfFriends}/>
-                    <Route path="/User/Library" component={Library}/>
-                    <Route path="/User/Slider" component={ImageSlider}/>
+                    <Route exact path="/User/EditProfile" component={EditProfile}/>
+                    <Route exact path="/User/Library" component={Library}/>
+                    <Route exact path="/User/Slider" component={ImageSlider}/>
                 </Switch>
             </Router>
         </div>
