@@ -146,11 +146,11 @@ export default function Posts() {
             .then(data => setPost(data.posts))
             }, [chargeFetch]);
 
-            useEffect(() => {
-                fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
-                .then(response => response.json())
-                .then(data => setUser(data.library))
-                }, [chargeFetch]);
+        useEffect(() => {
+            fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
+            .then(response => response.json())
+            .then(data => setUser(data.library))
+            }, [chargeFetch]);
         
             
     return (

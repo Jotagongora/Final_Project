@@ -35,9 +35,7 @@ export default function Navbar() {
         fetch(url_games, option)
         .then(response => response.json())
         .then(data => setGames(data))
-        }, []);
-
-        console.log(games);
+        }, [])
 
     const [current, setCurrent] = useState(0);
 
