@@ -23,6 +23,8 @@ export default function Navbar() {
 
     const [games, setGames] = useState([]);
 
+    
+
     const option = {
         method: "GET",
         headers: {'Accept': 'application/json',
@@ -34,6 +36,8 @@ export default function Navbar() {
         .then(response => response.json())
         .then(data => setGames(data))
         }, []);
+
+        console.log(games);
 
     const [current, setCurrent] = useState(0);
 

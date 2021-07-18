@@ -26,7 +26,7 @@ export default function Games() {
 
         fetch('http://localhost:8000/api/addGame', option)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => data);
     }
 
     return (
