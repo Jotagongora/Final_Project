@@ -51,7 +51,8 @@ export default function AuthContextProvider({children}) {
         photos,
         setPhotos,
         chargeFetch,
-        setChargeFetch
+        setChargeFetch,
+
     }
 
     return (

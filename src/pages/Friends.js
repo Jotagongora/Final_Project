@@ -9,6 +9,8 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Friends() {
 
+    const [input, setInput] = useState("");
+
     const {LoggedInUser, setFriendUser} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
@@ -21,8 +23,7 @@ export default function Friends() {
 
     
 
-
-
+  
     const option = 
         { headers: 
             {
@@ -33,25 +34,30 @@ export default function Friends() {
             }};
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/${LoggedInUser}`, option)
+        fetch(`http://localhost:8000/api/friends/${LoggedInUser}`, option)
         .then(response => response.json())
-        .then(data => setFriend(data.friends))
+        .then(data => setFriend(data))
         }, []);
 
-    
+        console.log(friend);
 
     function goProfile(id) {
         setFriendUser(id);
         history.push("/Friends/FriendProfile");
       
     }
+
+    const handleSearch = e => {
+        setInput(e.target.value);
+    }
+
         
 
     return (
         <div className="bg-purple">
             <div className="searchInput">
                 <h1>Amigos</h1>
-                <input type="search" placeholder="Buscar amigos..."/>
+                <input type="search" onChange={handleSearch} value={input} placeholder="Buscar amigos..."/>
                 <i className="fas fa-search"></i>
             </div>
             <div>

@@ -1,30 +1,48 @@
 import React, {useContext} from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {GlobalContext} from '../Navbar';
 import './Games.css';
 
 export default function Games() {
 
-    const {games} = useContext(GlobalContext);
+    const {games, setGames} = useContext(GlobalContext);
 
     const token = localStorage.getItem('TOKEN_KEY');
+
+    const url_games = `http://localhost:8000/api/games?search=`;
 
     const AuthStr = 'Bearer '.concat(token);
 
     const GameData = new FormData;
 
+    const [input, setInput] = useState("");
+
+    const handleSearch = e => setInput(e.target.value);
+
+    const option = {
+        method: "GET",
+        headers: {'Accept': 'application/json',
+        'Authorization': AuthStr,}, 
+    }
+
+    useEffect(() => {
+        input != "" && fetch(url_games + input, option)
+        .then(response => response.json())
+        .then(data => setGames(data))
+        }, [input])
+
     function addGameToLibrary(id) {
 
         GameData.append("gameId", id);
 
-        const option = {
+        const option2 = {
             method: "POST",
             headers: {'Accept': 'application/json',
             'Authorization': AuthStr,},
             body: GameData 
         }
 
-        fetch('http://localhost:8000/api/addGame', option)
+        fetch('http://localhost:8000/api/addGame', option2)
         .then(response => response)
         .then(data => data);
     }
@@ -33,7 +51,7 @@ export default function Games() {
         <div className="bg-purple">
             <div className="searchInput">
                 <h1>Juegos</h1>
-                <input type="search" placeholder="Buscar juegos..."/>
+                <input onChange={handleSearch} value={input} type="search" placeholder="Buscar juegos..."/>
                 <i className="fas fa-search"></i>
             </div>
             <div className="gamesContainer">

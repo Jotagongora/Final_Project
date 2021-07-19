@@ -66,30 +66,32 @@ export default function EditProfile() {
     }
 
     return (
-        <div>
-            <p>Cambiar nombre de usuario</p>
-            <form action="">
-                <input type="text" id="username" name="username" placeholder="Introduce el nuevo nombre..."/>
-                <button value="1" onClick={edit}>Enviar</button>
-            </form >
-            <p>Cambiar imagen de fondo</p>
-            <form action="" className="upload-image">
-                <label for="file-upload" className="subir">
-                    <i className="fas fa-cloud-upload-alt"></i> Subir archivo
-                </label>
-                <input id="file-upload" name="file-upload" onChange={handleChangeBg} type="file" style={{display: "none"}}/>
-                <p className="upload-name" id="info"></p>
-                <button value="2" onClick={edit}>Enviar</button>
-            </form>
-            <p>Cambiar avatar</p>
-            <form action="" className="upload-image">
-                <label for="file-avatar" className="subir">
-                    <i className="fas fa-cloud-upload-alt"></i> Subir archivo
-                </label>
-                <input id="file-avatar" name="file-avatar" onChange={handleChangeAvatar} type="file" style={{display: "none"}}/>
-                <p className="upload-name" id="avatar"></p>
-                <button value="3" onClick={edit}>Enviar</button>
-            </form>
+        <div className="bgPostColor">
+            <div className="letters">
+                <p>Cambiar nombre de usuario</p>
+                <form action="">
+                    <input type="text" id="username" name="username" placeholder="Introduce el nuevo nombre..."/>
+                    <button value="1" onClick={edit}>Enviar</button>
+                </form >
+                <p>Cambiar imagen de fondo</p>
+                <form action="" className="upload-image">
+                    <label for="file-upload" className="subir">
+                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
+                    </label>
+                    <input id="file-upload" name="file-upload" onChange={handleChangeBg} type="file" style={{display: "none"}}/>
+                    <p className="upload-name" id="info"></p>
+                    <button value="2" onClick={edit}>Enviar</button>
+                </form>
+                <p>Cambiar avatar</p>
+                <form action="" className="upload-image">
+                    <label for="file-avatar" className="subir">
+                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
+                    </label>
+                    <input id="file-avatar" name="file-avatar" onChange={handleChangeAvatar} type="file" style={{display: "none"}}/>
+                    <p className="upload-name" id="avatar"></p>
+                    <button value="3" onClick={edit}>Enviar</button>
+                </form>
+            </div>
         </div>
     )
 }

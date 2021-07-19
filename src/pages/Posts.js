@@ -14,10 +14,6 @@ export default function Posts() {
 
     const commentData = new FormData;
 
-    const commentInput = document.querySelectorAll('#commentInput');
-
-    const postId = document.querySelectorAll('#postId');
-
     const likeData = new FormData;
 
 
@@ -63,7 +59,7 @@ export default function Posts() {
         if (titleInput.value != "" && contentInput.value != "") {
 
         fetch('http://localhost:8000/api/addPost', option2)
-        .then(response => response.json())
+        .then(response => response)
         .then(data =>data);
 
         titleInput.value = "";
@@ -93,7 +89,7 @@ export default function Posts() {
         if (e.target[0].value != "") {
 
         fetch('http://localhost:8000/api/addComment', option2)
-        .then(response => response.json())
+        .then(response => response)
         .then(data => data);
 
         e.target[0].value = "";
@@ -115,7 +111,7 @@ export default function Posts() {
         }
 
         fetch('http://localhost:8000/api/addLike', option2)
-        .then(response => response.json())
+        .then(response => response)
         .then(data => data);
 
         setChargeFetch(!chargeFetch);
@@ -141,7 +137,6 @@ export default function Posts() {
             .then(response => response.json())
             .then(data => setUser(data.library))
             }, [chargeFetch]);
-        
             
     return (
         <div>
@@ -176,8 +171,9 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
+                            <div className="closeIconDiv"><i class="closeIcon fas fa-times"></i></div>
                             <div className="postImg" style={{backgroundImage: `url(${post.post_avatar})`}}></div>
-                            <div>
+                            <div> 
                                 <h1>{post.title}</h1>
                                 <p>{post.created_at}</p>
                             </div>
@@ -197,7 +193,14 @@ export default function Posts() {
                                 {post.comments.map((comment, i) => {
                                 
                                     return (
-                                       <p key={i}>{comment.content_text}</p>
+                                        <div>
+                                            <div>
+                                                <p className="authorComment">{comment.author} :</p>
+                                            </div>
+                                            <div className="comments">
+                                                <p className="textComment" key={i}>{comment.content_text}</p>
+                                            </div>
+                                       </div>
                                     )
                                 })} 
                             </div>

@@ -136,9 +136,6 @@
     cursor: pointer;
 }
 
-.isActive {
-    border-bottom: 5px solid blue;
-}
 
 textarea {
     font-size: 15px;
@@ -148,6 +145,31 @@ textarea {
     margin: 20px 5px 20px 5px;
     width: 90%;
     resize: none;
+}
+
+.comments {
+    margin: 3px;
+    border-radius: 15px;
+    padding: 2px;
+    background-color: rgb(48, 42, 42);
+}
+
+.closeIconDiv {
+   display: flex;
+   justify-content: end;
+}
+
+.closeIcon {
+    padding: 10px;
+}
+
+.closeIcon:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.textComment {
+    padding-left: 4px;
 }
 
 @media screen and (min-width: 709px){

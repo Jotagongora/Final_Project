@@ -13,29 +13,9 @@ export const GlobalContext = createContext();
 
 export default function Navbar() {
 
-    const token = localStorage.getItem('TOKEN_KEY');
-
-    const AuthStr = 'Bearer '.concat(token);
-
-    const {logOut} = useAuthContext();
-
-    const url_games = `http://localhost:8000/api/games`;
-
     const [games, setGames] = useState([]);
 
-    
-
-    const option = {
-        method: "GET",
-        headers: {'Accept': 'application/json',
-        'Authorization': AuthStr,}, 
-    }
-
-    useEffect(() => {
-        fetch(url_games, option)
-        .then(response => response.json())
-        .then(data => setGames(data))
-        }, [])
+    const {logOut} = useAuthContext();
 
     const [current, setCurrent] = useState(0);
 

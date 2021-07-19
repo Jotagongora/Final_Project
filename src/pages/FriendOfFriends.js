@@ -34,10 +34,11 @@ export default function FriendOfFriends() {
                         {friendOfFriends && friendOfFriends.map((friend, index) => {
                             return (
                             <li className="eachFriend">
-                                <div className="friendImg"></div>
+                                <div className="friendImg" style={{backgroundImage: `url(${friend.avatar})`}}></div>
                                 <div className="friendButtons">
                                     <h3>{friend.username}</h3>
-                                    <button className="profileButton">Añadir</button>
+                                    <button className="profileButton friendProfile">Añadir</button>
+                                    <button style={{visibility:"hidden"}}></button>
                                 </div>
                             </li>
                             )

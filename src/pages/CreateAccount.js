@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.css';
 import Logo from '../Images/logo_transparent.png';
 
+
 export default function CreateAccount() {
     return (
         <div className="login">

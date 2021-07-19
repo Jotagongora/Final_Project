@@ -140,7 +140,14 @@ export default function Posts() {
                                 {post.comments.map((comment, i) => {
                                 
                                     return (
-                                       <p key={i}>{comment.content_text}</p>
+                                        <div>
+                                            <div>
+                                                <p className="authorComment">{comment.author} :</p>
+                                            </div>
+                                            <div className="comments">
+                                                <p className="textComment" key={i}>{comment.content_text}</p>
+                                            </div>
+                                        </div>
                                     )
                                 })} 
                             </div>

@@ -77,6 +77,10 @@
     color: gray;
 }
 
+.friendProfile {
+    margin-left: -10px;
+}
+
 .removeButton {
     background-color: rgb(216, 16, 16);
     border: rgb(156, 13, 13);
