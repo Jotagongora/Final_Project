@@ -25,7 +25,7 @@ export default function Games() {
         }
 
         fetch('http://localhost:8000/api/addGame', option)
-        .then(response => response.json())
+        .then(response => response)
         .then(data => data);
     }
 
@@ -44,8 +44,8 @@ export default function Games() {
                             <div  className="gameDescription">
                                 <h3>{game.title}</h3>
                                 <ul>
-                                    <li><button>Likes</button><button>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir a biblioteca</button></li>
-                                    <li><span>Fecha de lanzamiento: </span><span>{game.releaseDate}</span></li>
+                                    <li><button>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir</button></li>
+                                    <li><span>Fecha: </span><span>{game.releaseDate}</span></li>
                                     <li><span>Género: </span><span>{game.genre}</span></li>
                                 </ul>
                             </div>
