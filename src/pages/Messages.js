@@ -1,21 +1,71 @@
-import React from 'react'
-import {MessagesData} from '../Data/MessagesData';
+import React, { useEffect, useState } from 'react';
+import { useHistory, NavLink, BrowserRouter as Route } from 'react-router-dom';
+import './Friends.css';
+import {useAuthContext} from '../contexts/AuthContext';
 
-export default function Messages() {
+
+
+
+
+export default function Friends() {
+
+    const [input, setInput] = useState("");
+
+    const token = localStorage.getItem('TOKEN_KEY');
+
+    const AuthStr = 'Bearer '.concat(token);
+
+    const history = useHistory();
+
+    const [people, setPeople] =  useState([]);
+
+    const handleSearch = e => setInput(e.target.value);
+
+    
+
+  
+    const option = 
+        { headers: 
+            {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': AuthStr,
+            
+            }};
+
+    useEffect(() => {
+        fetch(`http://localhost:8000/api/?search=` + input, option)
+        .then(response => response.json())
+        .then(data => setPeople(data))
+        }, [input]);
+
+        console.log(people);
+
+        
+
     return (
-        <div className="messages-main-container">
-            <div className="content-manager">
-                <h4>Mensajes</h4>
-                <br/>
-                <ul>
-                    <li>Mensajes</li>
-                    <li>Enviados</li>
+        <div className="bg-purple">
+            <div className="searchInput">
+                <h1>Gente</h1>
+                <input onChange={handleSearch} value={input} type="search" placeholder="Buscar personas..."/>
+                <i className="fas fa-search"></i>
+            </div>
+            <div>
+                <ul className="friendList">
+                    {people.map((person, index)=> {
+                        return (
+                        <li className="eachFriend">
+                            <div className="friendImg" style={{backgroundImage: `url(${person.avatar})`}}></div>
+                            <div className="friendButtons">
+                                <h3>{person.username}</h3>
+                                <button className="profileButton">Añadir a favoritos</button>
+                                <button style={{visibility: "hidden"}}></button>
+                            </div>
+                        </li>
+                        )
+                     })}
                 </ul>
             </div>
-            <div className="box-mail-container">
-
-            </div>
-          
         </div>
     )
 }

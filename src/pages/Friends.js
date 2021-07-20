@@ -56,7 +56,7 @@ export default function Friends() {
     return (
         <div className="bg-purple">
             <div className="searchInput">
-                <h1>Amigos</h1>
+                <h1>Favoritos</h1>
                 <input type="search" onChange={handleSearch} value={input} placeholder="Buscar amigos..."/>
                 <i className="fas fa-search"></i>
             </div>

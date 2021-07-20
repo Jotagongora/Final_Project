@@ -16,6 +16,8 @@ export default function Posts() {
 
     const likeData = new FormData;
 
+    const deleteData = new FormData;
+
 
     const changeHandler = e => {
         e.preventDefault();
@@ -29,6 +31,29 @@ export default function Posts() {
         } else {
             comments[e].style.display = "none";
         }
+    }
+
+    function deletePost(id) {
+
+        const deletePost = document.querySelector('#deletePost');
+        
+        deleteData.append("postId", id);
+
+        console.log(deletePost.value);
+        
+
+        const option = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: deleteData 
+        }
+
+        fetch('http://localhost:8000/api/remove', option)
+        .then(response => response)
+        .then(data =>data);
+
+        setChargeFetch(!chargeFetch);
     }
     
 
@@ -171,7 +196,7 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
-                            <div className="closeIconDiv"><i class="closeIcon fas fa-times"></i></div>
+                            <div className="closeIconDiv"><i onClick={() => deletePost(post.post_id)} id="deletePost" className="closeIcon fas fa-times"></i></div>
                             <div className="postImg" style={{backgroundImage: `url(${post.post_avatar})`}}></div>
                             <div> 
                                 <h1>{post.title}</h1>

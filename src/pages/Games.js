@@ -26,7 +26,7 @@ export default function Games() {
     }
 
     useEffect(() => {
-        input != "" && fetch(url_games + input, option)
+        fetch(url_games + input, option)
         .then(response => response.json())
         .then(data => setGames(data))
         }, [input])

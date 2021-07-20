@@ -31,7 +31,7 @@ export default function Navbar() {
                     <NavLink to="/User"><i className="fas fa-user"></i></NavLink>
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
-                    <NavLink to="/Messages"><i className="fas fa-envelope"></i></NavLink>
+                    <NavLink to="/Messages"><i className="fas fa-globe"></i></NavLink>
                     <NavLink onClick={logOut} to="/Messages"><i class="logout fas fa-sign-out-alt"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
