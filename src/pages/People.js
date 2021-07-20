@@ -7,7 +7,7 @@ import {useAuthContext} from '../contexts/AuthContext';
 
 
 
-export default function Friends() {
+export default function People() {
 
     const [input, setInput] = useState("");
 
@@ -38,9 +38,6 @@ export default function Friends() {
         .then(response => response)
         .then(data =>data);
 
-        alert("Añadido correctamente");
-
-        // setChargeFetch(!chargeFetch);
     }
 
     

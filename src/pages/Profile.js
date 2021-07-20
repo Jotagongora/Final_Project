@@ -18,7 +18,7 @@ export default function Profile() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const {LoggedInUser} = useAuthContext();
+    const {LoggedInUser, chargeFetch} = useAuthContext();
 
     const option2 = {
         method: "GET",
@@ -30,7 +30,7 @@ export default function Profile() {
         fetch(`http://localhost:8000/api/${LoggedInUser}`, option2)
         .then(response => response.json())
         .then(data => setActualUser(data));
-        }, []);
+        }, [chargeFetch]);
     
 
     return (

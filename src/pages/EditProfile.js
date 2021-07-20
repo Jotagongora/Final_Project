@@ -1,7 +1,10 @@
 import React from 'react';
 import './EditProfile.css';
+import {useAuthContext} from '../contexts/AuthContext';
 
 export default function EditProfile() {
+
+    const {setChargeFetch, chargeFetch} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
@@ -30,6 +33,8 @@ export default function EditProfile() {
             EditData.append("username", usernameInput.value);
 
             usernameInput.value = "";
+
+            setChargeFetch(!chargeFetch);
         }
 
         if (e.target.value === "2") {
@@ -39,6 +44,8 @@ export default function EditProfile() {
             EditData.append("file-upload", bgImageInput.files[0]);
 
             document.getElementById('info').innerHTML = "";
+
+            setChargeFetch(!chargeFetch);
         }
 
         if (e.target.value === "3") {
@@ -48,6 +55,8 @@ export default function EditProfile() {
             EditData.append("file-avatar", avatarInput.files[0]);
 
             document.getElementById('avatar').innerHTML = "";
+
+            setChargeFetch(!chargeFetch);
           
         }
         

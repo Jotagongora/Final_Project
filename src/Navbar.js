@@ -5,7 +5,7 @@ import Profile from './pages/Profile';
 import Friends from './pages/Friends';
 import Games from './pages/Games';
 import FriendProfile from './pages/FriendProfile';
-import Messages from './pages/Messages';
+import People from './pages/People';
 import './pages/Navbar.css';
 import GamePosts from './pages/GamePosts';
 import {useAuthContext} from './contexts/AuthContext';
@@ -32,13 +32,13 @@ export default function Navbar() {
                     <NavLink to="/User"><i className="fas fa-user"></i></NavLink>
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
-                    <NavLink to="/Messages"><i className="fas fa-globe"></i></NavLink>
+                    <NavLink to="/People"><i className="fas fa-globe"></i></NavLink>
                     <NavLink onClick={logOut} to="/Messages"><i class="logout fas fa-sign-out-alt"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route exact path="/Friends" component={Friends}/>
                         <Route exact path="/Games" component={Games}/>
-                        <Route path="/Messages" component={Messages}/>
+                        <Route path="/People" component={People}/>
                         <Route exact path="/Friends/FriendProfile" component={FriendProfile}/>
                         <Route exact path="/Games/Posts" component={GamePosts}/>
                     </Switch>
