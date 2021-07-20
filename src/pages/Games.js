@@ -1,11 +1,17 @@
 import React, {useContext} from 'react';
 import {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {GlobalContext} from '../Navbar';
 import './Games.css';
+import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Games() {
 
+    const history = useHistory();
+
     const {games, setGames} = useContext(GlobalContext);
+
+    const {setGameId} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
@@ -18,6 +24,13 @@ export default function Games() {
     const [input, setInput] = useState("");
 
     const handleSearch = e => setInput(e.target.value);
+
+    function goPosts(id) {
+
+        setGameId(id);
+
+        history.push("/Games/Posts");
+    }
 
     const option = {
         method: "GET",
@@ -58,11 +71,11 @@ export default function Games() {
                 {games.map((game, index) => {
                     return (
                         <div  className="gameContainer">
-                            <div className="gameImg" style={{backgroundImage: `url(${game.gameUrl})`}}></div>
+                            <div className="gameImg" style={{backgroundImage: `url(${game.gameImg})`}}></div>
                             <div  className="gameDescription">
                                 <h3>{game.title}</h3>
                                 <ul>
-                                    <li><button>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir</button></li>
+                                    <li><button onClick={() => goPosts(game.id)}>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir</button></li>
                                     <li><span>Fecha: </span><span>{game.releaseDate}</span></li>
                                     <li><span>Género: </span><span>{game.genre}</span></li>
                                 </ul>

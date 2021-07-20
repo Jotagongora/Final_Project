@@ -38,6 +38,8 @@ export default function Friends() {
         .then(response => response)
         .then(data =>data);
 
+        alert("Añadido correctamente");
+
         // setChargeFetch(!chargeFetch);
     }
 

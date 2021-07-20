@@ -7,6 +7,7 @@ import Games from './pages/Games';
 import FriendProfile from './pages/FriendProfile';
 import Messages from './pages/Messages';
 import './pages/Navbar.css';
+import GamePosts from './pages/GamePosts';
 import {useAuthContext} from './contexts/AuthContext';
 
 export const GlobalContext = createContext();
@@ -36,9 +37,10 @@ export default function Navbar() {
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route exact path="/Friends" component={Friends}/>
-                        <Route path="/Games" component={Games}/>
+                        <Route exact path="/Games" component={Games}/>
                         <Route path="/Messages" component={Messages}/>
                         <Route exact path="/Friends/FriendProfile" component={FriendProfile}/>
+                        <Route exact path="/Games/Posts" component={GamePosts}/>
                     </Switch>
                 </GlobalContext.Provider>
             </Router>

@@ -11,7 +11,7 @@ export default function Friends() {
 
     const [input, setInput] = useState("");
 
-    const {LoggedInUser, setFriendUser} = useAuthContext();
+    const {LoggedInUser, setFriendUser, setChargeFetch, chargeFetch} = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
@@ -21,7 +21,26 @@ export default function Friends() {
 
     const [friend, setFriend] =  useState([]);
 
+    const favoriteData = new FormData;
+
     
+    function deleteFavorite(id) {
+        
+        favoriteData.append("favoriteId", id);
+        
+        const option = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: favoriteData 
+        }
+
+        fetch('http://localhost:8000/api/removeFavorite', option)
+        .then(response => response)
+        .then(data =>data);
+
+        setChargeFetch(!chargeFetch);
+    }
 
   
     const option = 
@@ -37,9 +56,8 @@ export default function Friends() {
         fetch(`http://localhost:8000/api/friends/${LoggedInUser}`, option)
         .then(response => response.json())
         .then(data => setFriend(data))
-        }, []);
+        }, [chargeFetch]);
 
-        console.log(friend);
 
     function goProfile(id) {
         setFriendUser(id);
@@ -69,7 +87,7 @@ export default function Friends() {
                             <div className="friendButtons">
                                 <h3>{friend.username}</h3>
                                 <button onClick={() => goProfile(friend.id)} className="profileButton">Ver perfil</button>
-                                <button className="removeButton">Eliminar</button>
+                                <button onClick={() => deleteFavorite(friend.id)} className="removeButton">Eliminar</button>
                             </div>
                         </li>
                         )

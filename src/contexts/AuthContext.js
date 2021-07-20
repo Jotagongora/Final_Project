@@ -7,6 +7,8 @@ export default function AuthContextProvider({children}) {
 
     const [friendUser, setFriendUser] = useState();
 
+    const [gameId, setGameId] = useState();
+
     const [post, setPost] = useState([]);
 
     const [user, setUser] = useState([]);
@@ -52,6 +54,8 @@ export default function AuthContextProvider({children}) {
         setPhotos,
         chargeFetch,
         setChargeFetch,
+        gameId,
+        setGameId
 
     }
 
