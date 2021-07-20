@@ -21,6 +21,26 @@ export default function Friends() {
 
     const handleSearch = e => setInput(e.target.value);
 
+    const favoriteData = new FormData;
+
+    function addFavorite(id) {
+        
+        favoriteData.append("favoriteId", id);
+        
+        const option = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: favoriteData 
+        }
+
+        fetch('http://localhost:8000/api/addFavorite', option)
+        .then(response => response)
+        .then(data =>data);
+
+        // setChargeFetch(!chargeFetch);
+    }
+
     
 
   
@@ -58,7 +78,7 @@ export default function Friends() {
                             <div className="friendImg" style={{backgroundImage: `url(${person.avatar})`}}></div>
                             <div className="friendButtons">
                                 <h3>{person.username}</h3>
-                                <button className="profileButton">Añadir a favoritos</button>
+                                <button onClick={() => addFavorite(person.id)} className="profileButton">Añadir a favoritos</button>
                                 <button style={{visibility: "hidden"}}></button>
                             </div>
                         </li>

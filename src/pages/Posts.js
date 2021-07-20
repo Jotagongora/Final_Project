@@ -34,14 +34,9 @@ export default function Posts() {
     }
 
     function deletePost(id) {
-
-        const deletePost = document.querySelector('#deletePost');
         
         deleteData.append("postId", id);
-
-        console.log(deletePost.value);
         
-
         const option = {
             method: "POST",
             headers: {'Accept': 'application/json',
