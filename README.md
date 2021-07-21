@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Red Social Gamimg
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto trata sobre una red social en la que compartir publiacaciones sobre juegos a los que estés jugando en el momento o hayas jugado previamente, dar tu opinión a otros
+jugadores y subir fotos sobre tus partidas. ¡Comparte tu sabiduría con los demás que seguro te lo agradecerán!.
 
-## Available Scripts
+## Comenzando 🚀
 
-In the project directory, you can run:
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-### `npm start`
+Mira **Instalación** para conocer como desplegar el proyecto.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Advertencia 📋
 
-### `npm test`
+_Estas indicaciones te aseguran el funcionamiento en Linux, si tu sistema operativo es otro algún punto puede variar.
+Necesitarás el gesto de paquetes npm._
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalación 🔧
 
-### `npm run build`
+_1: Clonar el repositorio del proyecto._
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone https://github.com/Jotagongora/Final_Project.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_2: Ejecuta los siguientes comanados en la raíz._
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm update
+```
+```
+npm install
+```
+_3: Para finalizar ejecuta el siguiente comando para iniciar la aplicación(Por defecto http://localhost:3000)._
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Construido con 🛠️
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [React Js]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Autores ✒️
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+_Quería mencionar a las siguientes personas, ya que sin ellas no podría haber empezado este proyecto._
 
-## Learn More
+* **Jesús Álvarez** - *Quién me ha enseñado todo lo que se de Js y de programación en general.*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Expresiones de Gratitud 🎁
 
-### Code Splitting
+_Si te gusta el proyecto y quieres agradecerlo._
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Comenta a otros sobre este proyecto 📢
+* Invita a un café ☕ si nos vemos algún día 🤓. 
+* Da las gracias públicamente.
