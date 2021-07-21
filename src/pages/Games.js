@@ -59,6 +59,7 @@ export default function Games() {
         .then(response => response)
         .then(data => data);
     }
+    
 
     return (
         <div className="bg-purple">
@@ -75,7 +76,7 @@ export default function Games() {
                             <div  className="gameDescription">
                                 <h3>{game.title}</h3>
                                 <ul>
-                                    <li><button onClick={() => goPosts(game.id)}>Publicaciones</button><button onClick={() => addGameToLibrary(game.id)}>Añadir</button></li>
+                                    <li><button className="subir2" onClick={() => goPosts(game.id)}>Publicaciones</button><button className="subir2" onClick={() => addGameToLibrary(game.id)}>Añadir</button></li>
                                     <li><span>Fecha: </span><span>{game.releaseDate}</span></li>
                                     <li><span>Género: </span><span>{game.genre}</span></li>
                                 </ul>

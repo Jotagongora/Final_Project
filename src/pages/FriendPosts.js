@@ -139,7 +139,7 @@ export default function FriendPosts() {
                                 })} 
                             </div>
                             <form onSubmit={submitComment}>
-                                <textarea name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>
+                                <textarea spellCheck="false" className="textStyle" name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>
                                 <input type="hidden" name="postId" id="postId" value={post.post_id}/>
                                 <button>Publicar</button>
                             </form>

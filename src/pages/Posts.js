@@ -169,14 +169,14 @@ export default function Posts() {
                 <div className="navContainer">
                     <div className="box2">
                         <form onSubmit={submit} className="borderPost">
-                            <textarea placeholder="Título" className="" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
-                            <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
-                            <label htmlFor="postImage" className="subir">
+                            <textarea spellCheck="false" placeholder="Título" className="textStyle" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
+                            <textarea spellCheck="false" placeholder="Escribe lo que te apetezca aquí..." className="newPost textStyle" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
+                            <label htmlFor="postImage" className="subir2">
                                 Subir archivo
                             </label>
                             <input id="postImage" onChange={handleChange} name="PostImage" type="file" style={{display: "none"}}/>
                             <p className="upload-name" id="info"></p>
-                            <select name="game" id="game">
+                            <select name="game" id="game" className="subir2">
                                 <option value="">Ninguno</option>
                                 {user.map((game)=> {
                                     return (
@@ -184,7 +184,7 @@ export default function Posts() {
                                     );
                                 })}
                             </select>
-                            <button>Publicar</button>   
+                            <button className="subir2">Publicar</button>   
                         </form>
                         <div className="DownBorderPost">
                             
@@ -233,9 +233,9 @@ export default function Posts() {
                                 })} 
                             </div>
                             <form onSubmit={submitComment}>
-                                <textarea name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>
-                                <input type="hidden" name="postId" id="postId" value={post.post_id}/>
-                                <button>Publicar</button>
+                                <textarea spellCheck="false" className="textStyle" name="commentInput" onChange={changeHandler} id="commentInput" placeholder="Escribe un comentario..."></textarea>
+                                <input spellCheck="false" type="hidden" name="postId" id="postId" value={post.post_id}/>
+                                <button className="subir2">Publicar</button>
                             </form>
                         </div>
                     </div>

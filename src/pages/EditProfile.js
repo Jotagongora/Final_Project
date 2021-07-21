@@ -80,25 +80,25 @@ export default function EditProfile() {
                 <p>Cambiar nombre de usuario</p>
                 <form action="">
                     <input type="text" id="username" name="username" placeholder="Introduce el nuevo nombre..."/>
-                    <button value="1" onClick={edit}>Enviar</button>
+                    <button value="1" className="subir2" onClick={edit}>Enviar</button>
                 </form >
                 <p>Cambiar imagen de fondo</p>
                 <form action="" className="upload-image">
-                    <label htmlFor="file-upload" className="subir">
-                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
+                    <label htmlFor="file-upload" className="subir2">
+                        <i className="fas fa-cloud-upload-alt"></i> Subir imagen
                     </label>
                     <input id="file-upload" name="file-upload" onChange={handleChangeBg} type="file" style={{display: "none"}}/>
-                    <p className="upload-name" id="info"></p>
-                    <button value="2" onClick={edit}>Enviar</button>
+                    <p className="upload-name white" id="info"></p>
+                    <button value="2" className="subir2" onClick={edit}>Enviar</button>
                 </form>
                 <p>Cambiar avatar</p>
                 <form action="" className="upload-image">
-                    <label htmlFor="file-avatar" className="subir">
-                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
+                    <label htmlFor="file-avatar" className="subir2">
+                        <i className="fas fa-cloud-upload-alt"></i> Subir imagen
                     </label>
                     <input id="file-avatar" name="file-avatar" onChange={handleChangeAvatar} type="file" style={{display: "none"}}/>
-                    <p className="upload-name" id="avatar"></p>
-                    <button value="3" onClick={edit}>Enviar</button>
+                    <p className="upload-name white" id="avatar"></p>
+                    <button value="3" className="subir2" onClick={edit}>Enviar</button>
                 </form>
             </div>
         </div>

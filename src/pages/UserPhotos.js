@@ -73,12 +73,12 @@ export default function UserPhotos() {
         <div>
             <div className="bgPostColor">
                 <form action="" className="upload-image">
-                    <label htmlFor="file-upload" className="subir">
-                        <i className="fas fa-cloud-upload-alt"></i> Subir archivo
+                    <label htmlFor="file-upload" className="subir2">
+                        <i className="fas fa-cloud-upload-alt"></i> Subir imagen
                     </label>
-                    <input id="file-upload" onChange={handleChange} name="file-upload" type="file" style={{display: "none"}}/>
-                    <p className="upload-name" id="info"></p>
-                    <button onClick={send}>Enviar</button>
+                    <input className="subir2" id="file-upload" onChange={handleChange} name="file-upload" type="file" style={{display: "none"}}/>
+                    <p className="upload-name white" id="info"></p>
+                    <button className="subir2" onClick={send}>Enviar</button>
                 </form>
                 <div className="navContainer">
                     <div>

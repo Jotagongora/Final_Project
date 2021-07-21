@@ -6,6 +6,7 @@
 .subir{
     padding: 5px 10px;
     background: #0c0c0b;
+    border-radius: 5px;
     color: white;
     border:0px solid #fff;
 }
@@ -16,14 +17,35 @@
     background: aquamarine;
 }
 
+.subir2{
+    padding: 5px 10px;
+    background: rgb(87, 0, 128);
+    border-radius: 5px;
+    color: white;
+    border:1px solid #fff;
+    margin-bottom: 10px;
+    margin-left: 4px;
+}
+ 
+.subir2:hover{
+    cursor: pointer;
+    color:#fff;
+    background: rgb(68, 1, 99);
+}
+
 
 .letters {
     width: 420px;
-    background-color: rgb(87, 0, 128);
+    background-color: black;
     margin: auto;
-    border-radius: 15px;
+    border-radius: 10px;
+    border: 1px solid white;
 }
 
 .letters > p {
   color: white;
+}
+
+.white {
+    color: white;
 }

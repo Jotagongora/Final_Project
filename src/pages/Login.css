@@ -40,6 +40,14 @@ form > div > button {
     height:auto;
 }
 
+.buttonCreateAccount {
+    border: none;
+    font-size: 15px;
+    background-color: #77C9D4;
+    color: white;
+    height:auto;
+}
+
 form > div > button:hover {
     cursor: pointer;
     background-color: #57BC90;
