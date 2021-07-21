@@ -6,20 +6,24 @@
 .subir{
     padding: 5px 10px;
     background: #0c0c0b;
-    color:#fff;
+    color: white;
     border:0px solid #fff;
 }
  
 .subir:hover{
     cursor: pointer;
     color:#fff;
-    background: #f7cb15;
+    background: aquamarine;
 }
 
 
 .letters {
     width: 420px;
-    background-color: white;
+    background-color: rgb(87, 0, 128);
     margin: auto;
     border-radius: 15px;
+}
+
+.letters > p {
+  color: white;
 }

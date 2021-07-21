@@ -86,6 +86,7 @@ export default function Posts() {
         contentInput.value = "";
         fileInput.value = "";
         gameInput.value = "";
+        document.getElementById('info').innerHTML = "";
         }
 
         setChargeFetch(!chargeFetch);
@@ -117,6 +118,11 @@ export default function Posts() {
         }
 
         setChargeFetch(!chargeFetch);
+    }
+
+    function handleChange() {
+        let docName = document.getElementById('postImage').files[0].name;
+        document.getElementById('info').innerHTML = docName;
     }
 
     function send (post) {
@@ -166,8 +172,11 @@ export default function Posts() {
                         <form onSubmit={submit} className="borderPost">
                             <textarea placeholder="Título" className="" name="newTitlePost" id="titleInput" cols="30" rows="20"></textarea>
                             <textarea placeholder="Escribe lo que te apetezca aquí..." className="newPost" name="newContentPost" id="contentInput" cols="30" rows="20"></textarea>
-                            <label htmlFor="postImage"><i className="attachIcon fas fa-paperclip"></i></label>
-                            <input className="attachImgButton" id="postImage" name="postImage" type="file"/>
+                            <label for="postImage" className="subir">
+                                Subir archivo
+                            </label>
+                            <input id="postImage" onChange={handleChange} name="PostImage" type="file" style={{display: "none"}}/>
+                            <p className="upload-name" id="info"></p>
                             <select name="game" id="game">
                                 <option value="">Ninguno</option>
                                 {user.map((game, index)=> {
