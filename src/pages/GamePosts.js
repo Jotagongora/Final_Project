@@ -1,22 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import jwt_decode from 'jwt-decode';
+import React, {useEffect} from 'react';
 import {useAuthContext} from '../contexts/AuthContext';
 
 export default function Posts() {
 
-    const {post, setPost, gameId, chargeFetch, setChargeFetch } = useAuthContext();
+    const {post, setPost, gameId, chargeFetch, setChargeFetch, LoggedInUser } = useAuthContext();
 
     const token = localStorage.getItem('TOKEN_KEY');
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const formData = new FormData;
+    const commentData = new FormData();
 
-    const commentData = new FormData;
+    const likeData = new FormData();
 
-    const likeData = new FormData;
+    const deleteData = new FormData();
 
-    const deleteData = new FormData;
+    console.log(LoggedInUser);
 
 
     const changeHandler = e => {
@@ -48,7 +47,7 @@ export default function Posts() {
             body: commentData 
         }
 
-        if (e.target[0].value != "") {
+        if (e.target[0].value !== "") {
 
         fetch('http://localhost:8000/api/addComment', option2)
         .then(response => response)
@@ -57,6 +56,24 @@ export default function Posts() {
         e.target[0].value = "";
         e.target[1].value = "";
         }
+
+        setChargeFetch(!chargeFetch);
+    }
+
+    function deletePost(id) {
+        
+        deleteData.append("postId", id);
+        
+        const option = {
+            method: "POST",
+            headers: {'Accept': 'application/json',
+            'Authorization': AuthStr,},
+            body: deleteData 
+        }
+
+        fetch('http://localhost:8000/api/remove', option)
+        .then(response => response)
+        .then(data =>data);
 
         setChargeFetch(!chargeFetch);
     }
@@ -93,17 +110,18 @@ export default function Posts() {
             .then(response => response.json())
             .then(data => setPost(data.posts))
             }, []);
-
             
     return (
         <div>
             {post.map((post, index)=> {
         return (
-             <div id="posts" className="bgPostColor">
+             <div id="posts" className="bgPostColor" key={index}>
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
-                            <div></div>
+                            {LoggedInUser === post.author_id && (
+                                <div className="closeIconDiv"><i onClick={() => deletePost(post.post_id)} id="deletePost" className="closeIcon fas fa-times"></i></div>
+                            )}
                             <div className="postImg" style={{backgroundImage: `url(${post.post_avatar})`}}></div>
                             <div> 
                                 <h1>{post.title}</h1>
@@ -122,15 +140,15 @@ export default function Posts() {
                                 <i onClick={() => show(index)} className="hover far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
                             <div id="comments" style={{display: "none"}}>
-                                {post.comments.map((comment, i) => {
+                                {post.comments.map((comment) => {
                                 
                                     return (
-                                        <div>
+                                        <div key={comment.id}>
                                             <div>
                                                 <p className="authorComment">{comment.author} :</p>
                                             </div>
                                             <div className="comments">
-                                                <p className="textComment" key={i}>{comment.content_text}</p>
+                                                <p className="textComment">{comment.content_text}</p>
                                             </div>
                                        </div>
                                     )

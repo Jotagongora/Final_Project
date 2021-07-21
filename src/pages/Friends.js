@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, NavLink, BrowserRouter as Route } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Friends.css';
 import {useAuthContext} from '../contexts/AuthContext';
 
@@ -21,7 +21,7 @@ export default function Friends() {
 
     const [friend, setFriend] =  useState([]);
 
-    const favoriteData = new FormData;
+    const favoriteData = new FormData();
 
     
     function deleteFavorite(id) {
@@ -82,7 +82,7 @@ export default function Friends() {
                 <ul className="friendList">
                     {friend.map((friend, index)=> {
                         return (
-                        <li className="eachFriend">
+                        <li className="eachFriend" key={index}>
                             <div className="friendImg" style={{backgroundImage: `url(${friend.avatar})`}}></div>
                             <div className="friendButtons">
                                 <h3>{friend.username}</h3>

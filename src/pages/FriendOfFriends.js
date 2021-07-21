@@ -11,7 +11,7 @@ export default function FriendOfFriends() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const favoriteData = new FormData;
+    const favoriteData = new FormData();
 
     function addFavorite(id) {
         

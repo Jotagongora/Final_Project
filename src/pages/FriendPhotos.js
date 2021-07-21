@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
-import {SliderData} from '../Data/SliderData';
+import React, {useContext, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
 import {GlobalContext} from '../Navbar';
 import {useAuthContext} from '../contexts/AuthContext';

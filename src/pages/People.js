@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, NavLink, BrowserRouter as Route } from 'react-router-dom';
 import './Friends.css';
-import {useAuthContext} from '../contexts/AuthContext';
-
-
-
 
 
 export default function People() {
@@ -15,13 +10,11 @@ export default function People() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const history = useHistory();
-
     const [people, setPeople] =  useState([]);
 
     const handleSearch = e => setInput(e.target.value);
 
-    const favoriteData = new FormData;
+    const favoriteData = new FormData();
 
     function addFavorite(id) {
         
@@ -58,8 +51,6 @@ export default function People() {
         .then(data => setPeople(data))
         }, [input]);
 
-        console.log(people);
-
         
 
     return (
@@ -73,7 +64,7 @@ export default function People() {
                 <ul className="friendList">
                     {people.map((person, index)=> {
                         return (
-                        <li className="eachFriend">
+                        <li className="eachFriend" key={index}>
                             <div className="friendImg" style={{backgroundImage: `url(${person.avatar})`}}></div>
                             <div className="friendButtons">
                                 <h3>{person.username}</h3>

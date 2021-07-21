@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';
 import CreateAccount from '../pages/CreateAccount';

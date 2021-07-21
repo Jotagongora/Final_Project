@@ -19,7 +19,7 @@ export default function Games() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const GameData = new FormData;
+    const GameData = new FormData();
 
     const [input, setInput] = useState("");
 
@@ -70,7 +70,7 @@ export default function Games() {
             <div className="gamesContainer">
                 {games.map((game, index) => {
                     return (
-                        <div  className="gameContainer">
+                        <div  className="gameContainer" key={index}>
                             <div className="gameImg" style={{backgroundImage: `url(${game.gameImg})`}}></div>
                             <div  className="gameDescription">
                                 <h3>{game.title}</h3>

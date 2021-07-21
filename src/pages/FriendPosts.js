@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import jwt_decode from 'jwt-decode';
 import {useAuthContext} from '../contexts/AuthContext';
 
-export default function Posts() {
+export default function FriendPosts() {
 
     const {friendUser, post, setPost} = useAuthContext();
 
@@ -10,21 +9,9 @@ export default function Posts() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const formData = new FormData;
+    const commentData = new FormData();
 
-    const fileInput = document.querySelector('#postImage');
-
-    const titleInput = document.querySelector('#titleInput');
-
-    const contentInput = document.querySelector('#contentInput');
-
-    const commentData = new FormData;
-
-    const commentInput = document.querySelectorAll('#commentInput');
-
-    const postId = document.querySelectorAll('#postId');
-
-    const likeData = new FormData;
+    const likeData = new FormData();
 
     const [chargeFetch, setChargeFetch] = useState(false);
 
@@ -63,7 +50,7 @@ export default function Posts() {
             body: commentData 
         }
 
-        if (e.target[0].value != "") {
+        if (e.target[0].value !== "") {
 
         fetch('http://localhost:8000/api/addComment', option2)
         .then(response => response.json())
@@ -115,7 +102,7 @@ export default function Posts() {
             {post.map((post, index)=> {
                 
         return (
-             <div id="posts" className="bgPostColor">
+             <div id="posts" className="bgPostColor" key={post.post_id}>
                 <div className="navContainer">
                     <div className="box2">
                         <div className="post borderPost">
@@ -137,15 +124,15 @@ export default function Posts() {
                                 <i onClick={() => show(index)} className="hover far fa-lg fa-comments"><p>Ver comentarios</p></i>
                             </div>
                             <div id="comments" style={{display: "none"}}>
-                                {post.comments.map((comment, i) => {
+                                {post.comments.map((comment) => {
                                 
                                     return (
-                                        <div>
+                                        <div  key={comment.comment_id}>
                                             <div>
                                                 <p className="authorComment">{comment.author} :</p>
                                             </div>
                                             <div className="comments">
-                                                <p className="textComment" key={i}>{comment.content_text}</p>
+                                                <p className="textComment">{comment.content_text}</p>
                                             </div>
                                         </div>
                                     )

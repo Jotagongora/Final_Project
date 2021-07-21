@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
-import {SliderData} from '../Data/SliderData';
+import React, {useContext, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
 import {GlobalContext} from '../Navbar';
 import {useAuthContext} from '../contexts/AuthContext';
@@ -12,7 +11,7 @@ export default function UserPhotos() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const EditData = new FormData;
+    const EditData = new FormData();
 
     const {setCurrent} = useContext(GlobalContext);
 
@@ -74,7 +73,7 @@ export default function UserPhotos() {
         <div>
             <div className="bgPostColor">
                 <form action="" className="upload-image">
-                    <label for="file-upload" className="subir">
+                    <label htmlFor="file-upload" className="subir">
                         <i className="fas fa-cloud-upload-alt"></i> Subir archivo
                     </label>
                     <input id="file-upload" onChange={handleChange} name="file-upload" type="file" style={{display: "none"}}/>
@@ -86,7 +85,7 @@ export default function UserPhotos() {
                        <div className="gridPhotosContainer">
                        {photos.map((slide, index) => { 
                         return (
-                            <div onClick={handleClick(index)} className="photos" style={{backgroundImage: `url(${slide.image})`}}></div>
+                            <div key={index} onClick={handleClick(index)} className="photos" style={{backgroundImage: `url(${slide.image})`}}></div>
                             )
                         })}
                        </div>

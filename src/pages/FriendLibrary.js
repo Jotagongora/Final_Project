@@ -1,10 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {GlobalContext} from '../Navbar';
+import React, {useEffect, useState} from 'react';
 import {useAuthContext} from '../contexts/AuthContext';
 
 export default function FriendLibrary() {
 
-    const {user, friendUser} = useAuthContext();
+    const {friendUser} = useAuthContext();
 
     const [library, setLibrary] = useState();
 
@@ -34,7 +33,7 @@ export default function FriendLibrary() {
             <div className="gamesContainer">
                 {library && library.map((game, index) => {
                     return (
-                        <div  className="library">
+                        <div  className="library" key={index}>
                             <div className="gameLibrary" style={{backgroundImage: `url(${game.image})`}}></div>
                             <div  className="gameDescription">
                                 <h3>{game.title}</h3>

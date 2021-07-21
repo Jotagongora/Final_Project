@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import {useEffect} from 'react';
 import {Route, BrowserRouter as Router, NavLink, Switch} from 'react-router-dom';
 import Profile from './pages/Profile';
 import Friends from './pages/Friends';
@@ -20,9 +19,7 @@ export default function Navbar() {
 
     const [current, setCurrent] = useState(0);
 
-    function logout () {
-        logOut();
-    }
+
     
 
     return (
@@ -33,7 +30,7 @@ export default function Navbar() {
                     <NavLink to="/Friends"><i className="fas fa-user-friends"></i></NavLink>
                     <NavLink to="/Games"><i className="fas fa-gamepad"></i></NavLink>
                     <NavLink to="/People"><i className="fas fa-globe"></i></NavLink>
-                    <NavLink onClick={logOut} to="/Messages"><i class="logout fas fa-sign-out-alt"></i></NavLink>
+                    <NavLink onClick={logOut} to="/Messages"><i className="logout fas fa-sign-out-alt"></i></NavLink>
                     <Switch>
                         <Route exact path="/User" component={Profile}/>
                         <Route exact path="/Friends" component={Friends}/>

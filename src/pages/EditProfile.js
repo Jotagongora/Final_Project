@@ -10,7 +10,7 @@ export default function EditProfile() {
 
     const AuthStr = 'Bearer '.concat(token);
 
-    const EditData = new FormData;
+    const EditData = new FormData();
 
 
     function handleChangeBg() {
@@ -84,7 +84,7 @@ export default function EditProfile() {
                 </form >
                 <p>Cambiar imagen de fondo</p>
                 <form action="" className="upload-image">
-                    <label for="file-upload" className="subir">
+                    <label htmlFor="file-upload" className="subir">
                         <i className="fas fa-cloud-upload-alt"></i> Subir archivo
                     </label>
                     <input id="file-upload" name="file-upload" onChange={handleChangeBg} type="file" style={{display: "none"}}/>
@@ -93,7 +93,7 @@ export default function EditProfile() {
                 </form>
                 <p>Cambiar avatar</p>
                 <form action="" className="upload-image">
-                    <label for="file-avatar" className="subir">
+                    <label htmlFor="file-avatar" className="subir">
                         <i className="fas fa-cloud-upload-alt"></i> Subir archivo
                     </label>
                     <input id="file-avatar" name="file-avatar" onChange={handleChangeAvatar} type="file" style={{display: "none"}}/>

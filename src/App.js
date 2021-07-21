@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, NavLink, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './css/all.css';
 import Pages from './pages/Pages';
 import AuthContextProvider from './contexts/AuthContext';

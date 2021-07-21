@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useForm} from '../hooks/useForm';
 import {useAuthContext} from '../contexts/AuthContext';
-import {BrowserRouter as Router, NavLink, Switch, Route, useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import './Login.css';
 import Logo from '../Images/logo_transparent.png';
 
